@@ -17,13 +17,13 @@ export function Contact() {
     {
       icon: MapPin,
       title: "Адрес",
-      value: "Тульская область: г. Новомосковск, г. Богородицк, г. Алексин, г. Ефремов",
+      value: "Тульская обл.",
       link: null
     },
     {
       icon: Clock,
       title: "Режим работы",
-      value: "Пн-Пт: 9:00 - 18:00",
+      value: "Пн-Пт: 10:00 - 17:00 Сб/Вс выходной",
       link: null
     }
   ];
