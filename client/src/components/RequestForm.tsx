@@ -72,8 +72,8 @@ export function RequestForm() {
         <Card className="overflow-hidden">
           <CardContent className="p-0">
             <div className="bg-muted/30 p-6 border-b">
-              <p className="text-sm text-muted-foreground text-center">
-                📝 Пожалуйста, укажите: город, адрес, номер дома, квартиру и ваш телефон
+              <p className="text-lg text-muted-foreground text-center">
+                📝 Укажите: город, адрес, номер дома, квартиру и ваш телефон
               </p>
             </div>
             
