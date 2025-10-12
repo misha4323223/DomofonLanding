@@ -9,13 +9,13 @@ export function Benefits() {
     },
     {
       icon: Clock,
-      title: "Быстрое устранение проблем",
-      description: "Устраняем неисправности в течение 3 рабочих дней с момента обращения."
+      title: "Устранение проблем",
+      description: "Выезд мастера на выявление неисправности от 48 до 72 часов."
     },
     {
       icon: Award,
       title: "Работаем официально",
-      description: "Заключаем договор и предоставляем чеки."
+      description: "Заключаем договор и предоставляем акты"
     }
   ];
 
@@ -23,10 +23,9 @@ export function Benefits() {
     <section className="py-20 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4" data-testid="text-benefits-title">Почему выбирают нас</h2>
-          <p className="text-lg text-muted-foreground" data-testid="text-benefits-subtitle">
-            Профессиональный подход к каждому заказу
-          </p>
+          <h2 className="text-4xl font-bold mb-4" data-testid="text-benefits-title">
+            Что мы гарантируем
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
