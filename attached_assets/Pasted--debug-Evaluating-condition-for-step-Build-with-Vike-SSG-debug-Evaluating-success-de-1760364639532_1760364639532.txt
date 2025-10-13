@@ -1,0 +1,63 @@
+##[debug]Evaluating condition for step: 'Build with Vike (SSG)'
+##[debug]Evaluating: success()
+##[debug]Evaluating success:
+##[debug]=> true
+##[debug]Result: true
+##[debug]Starting: Build with Vike (SSG)
+##[debug]Loading inputs
+##[debug]Loading env
+Run npm run build
+##[debug]/usr/bin/bash -e /home/runner/work/_temp/7aa8b48b-d2df-452d-8341-5bb43bcbb181.sh
+> rest-express@1.0.0 build
+> vite build
+2:09:45 PM [vite-plugin-ssr][Warning] /home/runner/work/DomofonLanding/DomofonLanding/vite.config.ts defines an invalid resolve.alias which will be deprecated in the next major release: a path alias cannot start with @, see https://vite-plugin-ssr.com/path-aliases#vite
+vite v5.4.20 building for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractAssets'` to `query: '?extractAssets'`.
+Browserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1934 modules transformed.
+rendering chunks...
+computing gzip size...
+vite v5.4.20 building SSR bundle for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+../dist/public/client/vite-plugin-ssr.json                                                                  0.24 kB │ gzip:   0.18 kB
+../dist/public/client/_temp_manifest.json                                                                   1.17 kB │ gzip:   0.41 kB
+../dist/public/client/assets/static/ChatGPT-Image-11----.-2025--.--15_53_08_1760187202805.B5yldupM.png  1,842.47 kB
+../dist/public/client/assets/static/index.DBZGR-or.css                                                     72.11 kB │ gzip:  11.91 kB
+../dist/public/client/assets/entries/entry-client-routing.BUch6y4o.js                                      65.32 kB │ gzip:  21.21 kB
+../dist/public/client/assets/entries/pages_index.BtXulaOU.js                                              407.88 kB │ gzip: 127.57 kB
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 31 modules transformed.
+rendering chunks...
+../dist/public/server/package.json              0.02 kB
+../dist/public/server/importBuild.cjs           0.44 kB
+../dist/public/server/importBuild.mjs           0.23 kB
+../dist/public/server/pageFiles.mjs             2.40 kB
+../dist/public/server/entries/pages_index.mjs  49.42 kB
+✓ built in 199ms
+vite-plugin-ssr v0.4.142 pre-rendering HTML...
+2:09:51 PM [vite-plugin-ssr][Warning] The vite-plugin-ssr project has been renamed to Vike, see https://vite-plugin-ssr.com/vike
+2:09:51 PM [vite-plugin-ssr][Warning] /renderer/+onRenderHtml.jsx should only have a default export: move export { onRenderHtml } to +config.h.js or its own +onRenderHtml.js
+2:09:51 PM [vite-plugin-ssr][Warning] /pages/index/+Page.tsx should only have a default export: move export { Page } to +config.h.js or its own +Page.js
+ReferenceError: location is not defined
+    at currentPathname (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/use-browser-location.js:36:40)
+    at Object.useSyncExternalStore (/home/runner/work/DomofonLanding/DomofonLanding/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js:61:8)
+    at exports.useSyncExternalStore (/home/runner/work/DomofonLanding/DomofonLanding/node_modules/react/cjs/react.production.min.js:26:309)
+    at useLocationProperty (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/use-browser-location.js:29:3)
+    at usePathname (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/use-browser-location.js:39:3)
+    at Object.useBrowserLocation [as hook] (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/use-browser-location.js:53:44)
+    at useLocationFromRouter (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/index.js:86:39)
+    at Switch (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/wouter/esm/index.js:316:30)
+    at Fb (/home/runner/work/DomofonLanding/DomofonLanding/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js:65:44)
+    at Ib (/home/runner/work/DomofonLanding/DomofonLanding/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.min.js:67:254)
+Error: Process completed with exit code 1.
+##[debug]Finishing: Build with Vike (SSG)
