@@ -1,61 +1,94 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { requestFormSchema, type RequestFormData } from "@shared/schema";
+import { Loader2, CheckCircle2, FileText } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function RequestForm() {
-  const [formHeight, setFormHeight] = useState({ mobile: 1000, desktop: 950 });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { toast } = useToast();
 
-  // Google Form embedded URL
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLScSO3weGn0GU23qVuIXFoARSsra0B2sYFjMEAuDsD6UNQd2_w/viewform?embedded=true";
+  const form = useForm<RequestFormData>({
+    resolver: zodResolver(requestFormSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      city: "",
+      address: "",
+      apartment: "",
+      message: "",
+    },
+  });
 
-  useEffect(() => {
-    let loadCount = 0;
+  const onSubmit = async (data: RequestFormData) => {
+    setIsSubmitting(true);
 
-    // Слушаем postMessage от Google Forms
-    const handleMessage = (event: MessageEvent) => {
-      console.log('📨 Получено сообщение:', event.origin, event.data);
-      
-      if (event.origin === 'https://docs.google.com') {
-        if (event.data && typeof event.data === 'object') {
-          if (event.data.height && event.data.height < 400) {
-            console.log('✅ Форма отправлена! Меняю высоту на 150px');
-            setIsSubmitted(true);
-            setFormHeight({ mobile: 150, desktop: 150 });
-          }
-        }
+    try {
+      const response = await fetch("https://formspree.io/f/xblzpoky", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
       }
-    };
-
-    // Обработчик загрузки iframe
-    const handleIframeLoad = () => {
-      loadCount++;
-      console.log(`🔄 Iframe загружен (${loadCount} раз)`);
-      
-      // После второй загрузки (первая - начальная, вторая - после отправки)
-      if (loadCount === 2) {
-        setTimeout(() => {
-          console.log('✅ Обнаружена отправка формы! Меняю высоту на 150px');
-          setIsSubmitted(true);
-          setFormHeight({ mobile: 150, desktop: 150 });
-        }, 1000);
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-    
-    const iframe = iframeRef.current;
-    if (iframe) {
-      iframe.addEventListener('load', handleIframeLoad);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        variant: "destructive",
+        title: "Ошибка отправки",
+        description: "Не удалось отправить форму. Пожалуйста, попробуйте позже.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
+  };
 
-    return () => {
-      window.removeEventListener('message', handleMessage);
-      if (iframe) {
-        iframe.removeEventListener('load', handleIframeLoad);
-      }
-    };
-  }, []);
+  if (isSubmitted) {
+    return (
+      <section className="py-20 bg-background" id="request-form">
+        <div className="max-w-4xl mx-auto px-6">
+          <Card>
+            <CardContent className="p-12 text-center">
+              <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" data-testid="icon-success" />
+              <h3 className="text-2xl font-bold mb-2" data-testid="text-success-title">
+                Заявка отправлена!
+              </h3>
+              <p className="text-muted-foreground mb-6" data-testid="text-success-message">
+                Спасибо! Мы свяжемся с вами в ближайшее время.
+              </p>
+              <Button
+                onClick={() => setIsSubmitted(false)}
+                data-testid="button-submit-another"
+              >
+                Отправить ещё одну заявку
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-background" id="request-form">
@@ -69,51 +102,157 @@ export function RequestForm() {
           </p>
         </div>
 
-        <Card className="overflow-hidden">
-          <CardContent className="p-0">
-            <div className="bg-muted/30 p-6 border-b">
-              <p className="text-lg text-muted-foreground text-center">
-                📝 Укажите: город, адрес, номер дома, квартиру и ваш телефон
+        <Card>
+          <CardContent className="p-6">
+            <div className="bg-muted/30 p-4 rounded-md mb-6 flex items-center justify-center gap-2">
+              <FileText className="w-4 h-4 text-muted-foreground" />
+              <p className="text-sm text-muted-foreground text-center">
+                Укажите: город, адрес, номер дома, квартиру и ваш телефон
               </p>
             </div>
-            
-            {/* Google Form */}
-            <div 
-              className="relative bg-card transition-all duration-500"
-              style={{ 
-                height: `${formHeight.mobile}px`,
-              }}
-            >
-              <style>{`
-                @media (min-width: 768px) {
-                  .form-container {
-                    height: ${formHeight.desktop}px !important;
-                  }
-                }
-              `}</style>
-              <div className="form-container w-full h-full">
-                <iframe
-                  ref={iframeRef}
-                  src={googleFormUrl}
-                  width="100%"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  scrolling="no"
-                  className="w-full h-full"
-                  title="Форма заявки"
-                  data-testid="iframe-google-form"
+
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Имя *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Ваше имя"
+                            {...field}
+                            data-testid="input-name"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Телефон *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="+7 (___) ___-__-__"
+                            {...field}
+                            data-testid="input-phone"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Город *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Например: Москва"
+                            {...field}
+                            data-testid="input-city"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="apartment"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Квартира</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Номер квартиры"
+                            {...field}
+                            data-testid="input-apartment"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="address"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Адрес *</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Улица, дом"
+                          {...field}
+                          data-testid="input-address"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Комментарий</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Опишите проблему или дополнительную информацию..."
+                          className="resize-none min-h-[120px]"
+                          {...field}
+                          data-testid="input-message"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
+                  disabled={isSubmitting}
+                  data-testid="button-submit-form"
                 >
-                  Загрузка…
-                </iframe>
-              </div>
-            </div>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Отправка...
+                    </>
+                  ) : (
+                    "Отправить заявку"
+                  )}
+                </Button>
+              </form>
+            </Form>
           </CardContent>
         </Card>
 
         <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            Или свяжитесь с нами напрямую: <span className="font-medium text-foreground">8-905-629-87-08 / 8-919-073-61-42</span>
+          <p className="text-sm text-muted-foreground" data-testid="text-contact-info">
+            Или свяжитесь с нами напрямую:{" "}
+            <span className="font-medium text-foreground">
+              8-905-629-87-08 / 8-919-073-61-42
+            </span>
           </p>
         </div>
       </div>
