@@ -31,7 +31,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    target: 'es2020',
+    target: 'es2015',
   },
   server: {
     fs: {
