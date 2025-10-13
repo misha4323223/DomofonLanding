@@ -1,0 +1,105 @@
+Run npm run build
+
+> rest-express@1.0.0 build
+> vite build
+
+1:35:35 PM [vite-plugin-ssr][Warning] /home/runner/work/DomofonLanding/DomofonLanding/vite.config.ts defines an invalid resolve.alias which will be deprecated in the next major release: a path alias cannot start with @, see https://vite-plugin-ssr.com/path-aliases#vite
+vite v5.4.20 building for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractAssets'` to `query: '?extractAssets'`.
+Browserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1934 modules transformed.
+rendering chunks...
+computing gzip size...
+vite v5.4.20 building SSR bundle for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+../dist/public/client/vite-plugin-ssr.json                                                                  0.24 kB │ gzip:   0.18 kB
+../dist/public/client/_temp_manifest.json                                                                   1.17 kB │ gzip:   0.41 kB
+../dist/public/client/assets/static/ChatGPT-Image-11----.-2025--.--15_53_08_1760187202805.B5yldupM.png  1,842.47 kB
+../dist/public/client/assets/static/index.DBZGR-or.css                                                     72.11 kB │ gzip:  11.91 kB
+../dist/public/client/assets/entries/entry-client-routing.s3bJ8ddQ.js                                      65.32 kB │ gzip:  21.22 kB
+../dist/public/client/assets/entries/pages_index.LVkJPIc7.js                                              407.85 kB │ gzip: 127.55 kB
+✓ 5 modules transformed.
+x Build failed in 39ms
+[vite]: Rollup failed to resolve import "vike/server" from "/home/runner/work/DomofonLanding/DomofonLanding/client/renderer/+onRenderHtml.jsx".
+This is most likely unintended because it can break your application at runtime.
+If you do want to externalize this module explicitly add it to
+`build.rollupOptions.external`
+    at viteWarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65854:17)
+    at onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/@vitejs/plugin-react/dist/index.js:90:7)
+    at config.build.rollupOptions.onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite-plugin-ssr/dist/esm/node/plugin/plugins/suppressRollupWarning.js:20:36)
+    at onRollupWarning (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65884:5)
+    at onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65549:7)
+    at file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:20951:13
+    at Object.logger [as onLog] (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:22823:9)
+    at ModuleLoader.handleInvalidResolvedId (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:21567:26)
+    at file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:21525:26 {
+  watchFiles: [
+    '/home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite-plugin-ssr/dist/esm/node/importBuild.js',
+    '/home/runner/work/DomofonLanding/DomofonLanding/client/pages/index/+Page.tsx',
+    '/home/runner/work/DomofonLanding/DomofonLanding/client/renderer/+onRenderHtml.jsx',
+    '/home/runner/work/DomofonLanding/DomofonLanding/package.json'
+  ]
+}
+6s
+Run npm run build
+
+> rest-express@1.0.0 build
+> vite build
+
+1:35:35 PM [vite-plugin-ssr][Warning] /home/runner/work/DomofonLanding/DomofonLanding/vite.config.ts defines an invalid resolve.alias which will be deprecated in the next major release: a path alias cannot start with @, see https://vite-plugin-ssr.com/path-aliases#vite
+vite v5.4.20 building for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractAssets'` to `query: '?extractAssets'`.
+Browserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1934 modules transformed.
+rendering chunks...
+computing gzip size...
+vite v5.4.20 building SSR bundle for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+../dist/public/client/vite-plugin-ssr.json                                                                  0.24 kB │ gzip:   0.18 kB
+../dist/public/client/_temp_manifest.json                                                                   1.17 kB │ gzip:   0.41 kB
+../dist/public/client/assets/static/ChatGPT-Image-11----.-2025--.--15_53_08_1760187202805.B5yldupM.png  1,842.47 kB
+../dist/public/client/assets/static/index.DBZGR-or.css                                                     72.11 kB │ gzip:  11.91 kB
+../dist/public/client/assets/entries/entry-client-routing.s3bJ8ddQ.js                                      65.32 kB │ gzip:  21.22 kB
+../dist/public/client/assets/entries/pages_index.LVkJPIc7.js                                              407.85 kB │ gzip: 127.55 kB
+✓ 5 modules transformed.
+x Build failed in 39ms
+[vite]: Rollup failed to resolve import "vike/server" from "/home/runner/work/DomofonLanding/DomofonLanding/client/renderer/+onRenderHtml.jsx".
+This is most likely unintended because it can break your application at runtime.
+If you do want to externalize this module explicitly add it to
+`build.rollupOptions.external`
+    at viteWarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65854:17)
+    at onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/@vitejs/plugin-react/dist/index.js:90:7)
+    at config.build.rollupOptions.onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite-plugin-ssr/dist/esm/node/plugin/plugins/suppressRollupWarning.js:20:36)
+    at onRollupWarning (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65884:5)
+    at onwarn (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65549:7)
+    at file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:20951:13
+    at Object.logger [as onLog] (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:22823:9)
+    at ModuleLoader.handleInvalidResolvedId (file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:21567:26)
+    at file:///home/runner/work/DomofonLanding/DomofonLanding/node_modules/rollup/dist/es/shared/node-entry.js:21525:26 {
+  watchFiles: [
+    '/home/runner/work/DomofonLanding/DomofonLanding/node_modules/vite-plugin-ssr/dist/esm/node/importBuild.js',
+    '/home/runner/work/DomofonLanding/DomofonLanding/client/pages/index/+Page.tsx',
+    '/home/runner/work/DomofonLanding/DomofonLanding/client/renderer/+onRenderHtml.jsx',
+    '/home/runner/work/DomofonLanding/DomofonLanding/package.json'
+  ]
+}
+Error: Process completed with exit code 1.
+0s
