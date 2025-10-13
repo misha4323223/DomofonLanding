@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     OneSignalDeferred?: Array<(OneSignal: any) => void>;
+    OneSignal?: any;
   }
 }
 
@@ -20,76 +21,60 @@ export class OneSignalService {
     return OneSignalService.instance;
   }
 
-  async requestPermission(): Promise<void> {
+  private async getOneSignal(): Promise<any> {
+    // Если OneSignal уже загружен - используем его напрямую
+    if (window.OneSignal) {
+      return window.OneSignal;
+    }
+
+    // Если нет - ждём через Deferred
     return new Promise((resolve, reject) => {
       if (!window.OneSignalDeferred) {
         reject(new Error('OneSignal SDK не загружен. Возможно, он заблокирован браузером.'));
         return;
       }
-      
-      window.OneSignalDeferred.push(async (OneSignal: any) => {
-        try {
-          await OneSignal.Slidedown.promptPush();
-          resolve();
-        } catch (error) {
-          reject(error);
-        }
+
+      window.OneSignalDeferred.push((OneSignal: any) => {
+        resolve(OneSignal);
       });
     });
+  }
+
+  async requestPermission(): Promise<void> {
+    try {
+      const OneSignal = await this.getOneSignal();
+      await OneSignal.Slidedown.promptPush();
+    } catch (error) {
+      throw error;
+    }
   }
 
   async setExternalUserId(userId: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      if (!window.OneSignalDeferred) {
-        reject(new Error('OneSignal SDK не загружен'));
-        return;
-      }
-      
-      window.OneSignalDeferred.push(async (OneSignal: any) => {
-        await OneSignal.login(userId);
-        resolve();
-      });
-    });
+    const OneSignal = await this.getOneSignal();
+    await OneSignal.login(userId);
   }
 
   async addTag(key: string, value: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      if (!window.OneSignalDeferred) {
-        reject(new Error('OneSignal SDK не загружен'));
-        return;
-      }
-      
-      window.OneSignalDeferred.push(async (OneSignal: any) => {
-        await OneSignal.User.addTag(key, value);
-        resolve();
-      });
-    });
+    const OneSignal = await this.getOneSignal();
+    await OneSignal.User.addTag(key, value);
   }
 
   async isPushSupported(): Promise<boolean> {
-    if (!window.OneSignalDeferred) {
+    try {
+      const OneSignal = await this.getOneSignal();
+      return await OneSignal.Notifications.isPushSupported();
+    } catch {
       return false;
     }
-
-    return new Promise((resolve) => {
-      window.OneSignalDeferred?.push(async (OneSignal: any) => {
-        const supported = await OneSignal.Notifications.isPushSupported();
-        resolve(supported);
-      });
-    });
   }
 
   async getPermissionState(): Promise<string> {
-    if (!window.OneSignalDeferred) {
+    try {
+      const OneSignal = await this.getOneSignal();
+      return await OneSignal.Notifications.permissionNative;
+    } catch {
       return 'default';
     }
-
-    return new Promise((resolve) => {
-      window.OneSignalDeferred?.push(async (OneSignal: any) => {
-        const permission = await OneSignal.Notifications.permissionNative;
-        resolve(permission);
-      });
-    });
   }
 }
 
