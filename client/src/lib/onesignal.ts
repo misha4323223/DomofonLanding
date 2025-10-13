@@ -10,7 +10,6 @@ export interface OneSignalConfig {
 
 export class OneSignalService {
   private static instance: OneSignalService;
-  private initialized = false;
 
   private constructor() {}
 
@@ -21,32 +20,10 @@ export class OneSignalService {
     return OneSignalService.instance;
   }
 
-  async initialize(config: OneSignalConfig): Promise<void> {
-    if (this.initialized) {
-      return;
-    }
-
-    return new Promise((resolve) => {
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      window.OneSignalDeferred.push(async (OneSignal: any) => {
-        await OneSignal.init({
-          appId: config.appId,
-          allowLocalhostAsSecureOrigin: true,
-        });
-        this.initialized = true;
-        resolve();
-      });
-    });
-  }
-
   async requestPermission(): Promise<void> {
-    if (!this.initialized) {
-      throw new Error('OneSignal not initialized');
-    }
-
     return new Promise((resolve, reject) => {
       if (!window.OneSignalDeferred) {
-        reject(new Error('OneSignal SDK not loaded'));
+        reject(new Error('OneSignal SDK не загружен. Возможно, он заблокирован браузером.'));
         return;
       }
       
@@ -62,12 +39,13 @@ export class OneSignalService {
   }
 
   async setExternalUserId(userId: string): Promise<void> {
-    if (!this.initialized) {
-      throw new Error('OneSignal not initialized');
-    }
-
-    return new Promise((resolve) => {
-      window.OneSignalDeferred?.push(async (OneSignal: any) => {
+    return new Promise((resolve, reject) => {
+      if (!window.OneSignalDeferred) {
+        reject(new Error('OneSignal SDK не загружен'));
+        return;
+      }
+      
+      window.OneSignalDeferred.push(async (OneSignal: any) => {
         await OneSignal.login(userId);
         resolve();
       });
@@ -75,12 +53,13 @@ export class OneSignalService {
   }
 
   async addTag(key: string, value: string): Promise<void> {
-    if (!this.initialized) {
-      throw new Error('OneSignal not initialized');
-    }
-
-    return new Promise((resolve) => {
-      window.OneSignalDeferred?.push(async (OneSignal: any) => {
+    return new Promise((resolve, reject) => {
+      if (!window.OneSignalDeferred) {
+        reject(new Error('OneSignal SDK не загружен'));
+        return;
+      }
+      
+      window.OneSignalDeferred.push(async (OneSignal: any) => {
         await OneSignal.User.addTag(key, value);
         resolve();
       });
@@ -88,7 +67,7 @@ export class OneSignalService {
   }
 
   async isPushSupported(): Promise<boolean> {
-    if (!this.initialized) {
+    if (!window.OneSignalDeferred) {
       return false;
     }
 
@@ -101,7 +80,7 @@ export class OneSignalService {
   }
 
   async getPermissionState(): Promise<string> {
-    if (!this.initialized) {
+    if (!window.OneSignalDeferred) {
       return 'default';
     }
 

@@ -113,16 +113,19 @@ export function RequestForm() {
     } catch (error: any) {
       console.error('❌ Failed to enable notifications:', error);
       
+      let errorTitle = "Ошибка";
       let errorMessage = "Не удалось включить уведомления";
       
-      if (error?.message?.includes('заблокирован') || error?.message?.includes('blocked')) {
-        errorMessage = "OneSignal заблокирован браузером. Отключите защиту от отслеживания для этого сайта";
+      if (error?.message?.includes('заблокирован') || error?.message?.includes('blocked') || error?.message?.includes('не загружен')) {
+        errorTitle = "Уведомления заблокированы";
+        errorMessage = "Пожалуйста, отключите блокировщик рекламы или защиту от отслеживания для этого сайта";
       }
       
       toast({
         variant: "destructive",
-        title: "Ошибка",
+        title: errorTitle,
         description: errorMessage,
+        duration: 6000,
       });
     } finally {
       setIsSubscribing(false);
