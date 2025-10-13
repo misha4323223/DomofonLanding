@@ -1,7 +1,5 @@
 import App from '../../src/App'
 
-export { Page }
-
-function Page() {
+export default function Page() {
   return <App />
 }

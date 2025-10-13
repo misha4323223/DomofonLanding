@@ -1,11 +1,8 @@
-export { onRenderHtml }
-
 import { renderToString } from 'react-dom/server'
-import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
 import { Router } from 'wouter'
 import '../src/index.css'
 
-async function onRenderHtml(pageContext) {
+export default async function onRenderHtml(pageContext) {
   const { Page, urlPathname } = pageContext
   
   const pageHtml = renderToString(
@@ -14,7 +11,7 @@ async function onRenderHtml(pageContext) {
     </Router>
   )
 
-  const documentHtml = escapeInject`<!DOCTYPE html>
+  const documentHtml = `<!DOCTYPE html>
     <html lang="ru">
       <head>
         <meta charset="UTF-8" />
@@ -48,7 +45,7 @@ async function onRenderHtml(pageContext) {
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
       </head>
       <body>
-        <div id="root">${dangerouslySkipEscape(pageHtml)}</div>
+        <div id="root">${pageHtml}</div>
         
         <!-- Schema.org Structured Data (JSON-LD) -->
         <script type="application/ld+json">
