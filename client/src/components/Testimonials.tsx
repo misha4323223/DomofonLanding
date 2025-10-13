@@ -4,23 +4,17 @@ import { Star } from "lucide-react";
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Иван Петров",
-      location: "Тула",
-      service: "Установка видеодомофона",
+      name: "Георгий Н.",
       rating: 5,
-      text: "Быстро приехали, качественно установили видеодомофон. Всё работает отлично, мастер объяснил как пользоваться. Рекомендую!"
+      text: "Качественно установили видеодомофон. Всё работает отлично, мастер объяснил как пользоваться. Рекомендую!"
     },
     {
-      name: "Мария Соколова",
-      location: "Новомосковск",
-      service: "Ремонт домофона",
+      name: "Мария С",
       rating: 5,
-      text: "Домофон перестал открывать дверь. Приехали в течение двух дней, быстро нашли проблему и устранили. Цена адекватная, работой довольна."
+      text: "Домофон перестал открывать дверь. Приехали в течение трёх дней, быстро нашли проблему и устранили."
     },
     {
-      name: "Сергей Николаев",
-      location: "Узловая",
-      service: "Установка IP-домофона",
+      name: "Сергей П",
       rating: 5,
       text: "Установили современный IP-домофон в частный дом. Теперь могу видеть кто пришёл прямо с телефона. Работа выполнена профессионально, спасибо!"
     }
@@ -33,9 +27,6 @@ export function Testimonials() {
           <h2 className="text-4xl font-bold mb-4" data-testid="text-testimonials-title">
             Отзывы наших клиентов
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Нам доверяют жители Тульской области
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -59,9 +50,6 @@ export function Testimonials() {
                 <div className="border-t pt-4">
                   <p className="font-semibold" data-testid={`text-testimonial-name-${index}`}>
                     {testimonial.name}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.location} • {testimonial.service}
                   </p>
                 </div>
               </CardContent>
