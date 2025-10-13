@@ -19,22 +19,22 @@ export default async function onRenderHtml(pageContext) {
         
         <!-- SEO Meta Tags -->
         <title>Установка и ремонт домофонов в Тульской области | Домофонная служба ИП Бухтеев</title>
-        <meta name="description" content="Профессиональная установка и ремонт домофонных систем в Тульской области. Выезд от 48 до 72 часов. Гарантия качества. Оставьте заявку онлайн или позвоните 8-905-629-87-08" />
-        <meta name="keywords" content="установка домофонов, ремонт домофонов, домофонная служба, домофоны Тульская область, установка домофона Тульская область, ремонт домофона Тульская область" />
+        <meta name="description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Видео и аудио домофоны. Звоните: 8-905-629-87-08" />
+        <meta name="keywords" content="установка домофонов Тула, ремонт домофонов Тула цена, установка домофона Новомосковск, ремонт домофона Узловая, видеодомофон установка Тульская область, IP домофон Тула, домофонная система для квартиры, установка домофона в частном доме Тула, аудиодомофон установка, многоквартирный домофон, срочный ремонт домофона, диагностика домофона Тула, замена домофона Алексин, настройка домофонной системы" />
         <meta name="author" content="ИП Бухтеев" />
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.obzor71.ru/" />
         <meta property="og:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
-        <meta property="og:description" content="Профессиональная установка и ремонт домофонных систем в Тульской области. Выезд от 48 до 72 часов. Оставьте заявку онлайн!" />
+        <meta property="og:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Звоните: 8-905-629-87-08" />
         <meta property="og:image" content="https://www.obzor71.ru/og-image.jpg" />
         
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.obzor71.ru/" />
         <meta property="twitter:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
-        <meta property="twitter:description" content="Профессиональная установка и ремонт домофонных систем в Тульской области. Выезд от 48 до 72 часов." />
+        <meta property="twitter:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Звоните: 8-905-629-87-08" />
         <meta property="twitter:image" content="https://www.obzor71.ru/og-image.jpg" />
         
         <!-- Canonical URL -->
@@ -47,7 +47,7 @@ export default async function onRenderHtml(pageContext) {
       <body>
         <div id="root">${pageHtml}</div>
         
-        <!-- Schema.org Structured Data (JSON-LD) -->
+        <!-- Schema.org Structured Data (JSON-LD) - LocalBusiness -->
         <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -62,16 +62,29 @@ export default async function onRenderHtml(pageContext) {
             "addressCountry": "RU"
           },
           "telephone": ["+7-905-629-87-08", "+7-919-073-61-42"],
-          "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-              "@type": "GeoCoordinates",
-              "latitude": "54.193122",
-              "longitude": "37.617348"
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Тула"
             },
-            "geoRadius": "50000"
-          },
-          "priceRange": "$$",
+            {
+              "@type": "City",
+              "name": "Новомосковск"
+            },
+            {
+              "@type": "City",
+              "name": "Узловая"
+            },
+            {
+              "@type": "City",
+              "name": "Алексин"
+            },
+            {
+              "@type": "City",
+              "name": "Щекино"
+            }
+          ],
+          "priceRange": "3000-15000 RUB",
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -89,7 +102,12 @@ export default async function onRenderHtml(pageContext) {
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Установка домофонов",
-                  "description": "Профессиональная установка домофонных систем любой сложности"
+                  "description": "Профессиональная установка домофонных систем любой сложности: видеодомофоны, аудиодомофоны, IP-домофоны, многоквартирные системы",
+                  "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Домофонная служба ИП Бухтеев"
+                  },
+                  "areaServed": "Тульская область"
                 }
               },
               {
@@ -97,11 +115,125 @@ export default async function onRenderHtml(pageContext) {
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Ремонт домофонов",
-                  "description": "Устранение проблем и неисправностей домофонных систем от 48 до 72 часов"
+                  "description": "Диагностика неисправностей, замена компонентов, настройка системы, профилактика. Устранение проблем от 48 до 72 часов",
+                  "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Домофонная служба ИП Бухтеев"
+                  },
+                  "areaServed": "Тульская область"
                 }
               }
             ]
           }
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - Service для установки -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Установка домофонов",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Домофонная служба ИП Бухтеев",
+            "telephone": "+7-905-629-87-08"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Тульская область"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "3000",
+              "priceCurrency": "RUB",
+              "name": "от"
+            }
+          },
+          "description": "Установка видеодомофонов, аудиодомофонов, IP-домофонов и многоквартирных систем в Тульской области. Выезд мастера от 48 до 72 часов."
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - Service для ремонта -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Ремонт домофонов",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Домофонная служба ИП Бухтеев",
+            "telephone": "+7-905-629-87-08"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Тульская область"
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          },
+          "description": "Ремонт и обслуживание домофонных систем: диагностика неисправностей, замена компонентов, настройка, профилактика. Гарантия 12 месяцев."
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - FAQPage -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Сколько стоит установка домофона?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Стоимость установки домофона зависит от типа системы и сложности работ. Цены начинаются от 3000₽ за базовую установку аудиодомофона. Видеодомофоны и IP-системы могут стоить от 5000₽ до 15000₽. Для точной оценки позвоните по телефону 8-905-629-87-08."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как быстро вы приедете для установки или ремонта?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Выезд мастера на установку или ремонт домофона осуществляется от 48 до 72 часов после оставления заявки. В срочных случаях возможен более быстрый выезд - уточняйте по телефону."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какую гарантию вы даёте на работы?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы предоставляем гарантию 12 месяцев на все выполненные работы по установке и ремонту домофонных систем. Используем только проверенное оборудование."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "В каких городах Тульской области вы работаете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы оказываем услуги по установке и ремонту домофонов в следующих городах Тульской области: Тула, Новомосковск, Узловая, Алексин, Щекино и других населенных пунктах региона. Зона обслуживания - радиус 50 км."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какие типы домофонов вы устанавливаете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы устанавливаем все типы домофонных систем: видеодомофоны, аудиодомофоны, IP-домофоны и многоквартирные системы. Работаем как с частными домами, так и с многоквартирными зданиями."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Что делать если домофон не открывает дверь?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Если домофон не открывает дверь, сначала проверьте батарейки в трубке. Если это не помогло, проблема может быть в электромагнитном замке, блоке питания или панели вызова. Рекомендуем обратиться к специалистам для диагностики. Звоните: 8-905-629-87-08."
+              }
+            }
+          ]
         }
         </script>
       </body>
