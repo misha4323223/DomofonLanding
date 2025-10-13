@@ -2,22 +2,21 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-import vike from 'vike/plugin';
+import ssr from "vite-plugin-ssr/plugin";
 
 export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    vike(),
+    ssr(),
     runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
       ? [
           await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
+            m.cartographer()
           ),
           await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
+            m.devBanner()
           ),
         ]
       : []),
@@ -33,7 +32,10 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    target: 'es2020',
+    target: "es2020",
+    rollupOptions: {
+      external: ["vite-plugin-ssr/server"], // чтобы Rollup не пытался резолвить серверные модули
+    },
   },
   server: {
     fs: {
