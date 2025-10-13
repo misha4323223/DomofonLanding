@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    ssr({ prerender: true }),
+    ssr({ prerender: true }),  // ← ВОТ ТУТ ЗАПЯТАЯ!
     runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
       ? [
@@ -34,7 +34,7 @@ export default defineConfig({
     emptyOutDir: true,
     target: "es2020",
     rollupOptions: {
-      external: ["vite-plugin-ssr/server"], // чтобы Rollup не пытался резолвить серверные модули
+      external: ["vite-plugin-ssr/server"],
     },
   },
   server: {
