@@ -2,12 +2,17 @@ export { onRenderHtml }
 
 import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr/server'
+import { Router } from 'wouter'
 import '../src/index.css'
 
 async function onRenderHtml(pageContext) {
-  const { Page } = pageContext
+  const { Page, urlPathname } = pageContext
   
-  const pageHtml = renderToString(<Page />)
+  const pageHtml = renderToString(
+    <Router ssrPath={urlPathname}>
+      <Page />
+    </Router>
+  )
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="ru">
