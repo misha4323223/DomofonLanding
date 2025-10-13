@@ -53,12 +53,12 @@ export function RequestForm() {
         setIsSubmitted(true);
         form.reset();
         
-        const pushSupported = await oneSignalService.isPushSupported();
-        const permission = await oneSignalService.getPermissionState();
+        console.log('✅ Форма отправлена успешно');
         
-        if (pushSupported && permission === 'default') {
-          setShowNotificationPrompt(true);
-        }
+        // Показываем промпт подписки всегда после отправки формы
+        // OneSignal сам разберется, поддерживается ли push или нет
+        setShowNotificationPrompt(true);
+        console.log('👉 Показываем промпт подписки');
       } else {
         throw new Error("Form submission failed");
       }
@@ -77,18 +77,52 @@ export function RequestForm() {
   const handleEnableNotifications = async () => {
     setIsSubscribing(true);
     try {
+      console.log('🔔 Запрашиваем разрешение на уведомления...');
+      
+      // Проверяем, доступен ли OneSignal
+      if (typeof window.OneSignalDeferred === 'undefined') {
+        throw new Error('OneSignal SDK не загружен. Возможно, он заблокирован браузером.');
+      }
+      
       await oneSignalService.requestPermission();
+      
+      // Сохраняем данные клиента в теги OneSignal
+      const formData = form.getValues();
+      console.log('💾 Сохраняем данные клиента в теги:', formData);
+      
+      if (formData.phone) {
+        await oneSignalService.addTag('phone', formData.phone);
+      }
+      if (formData.name) {
+        await oneSignalService.addTag('name', formData.name);
+      }
+      if (formData.city) {
+        await oneSignalService.addTag('city', formData.city);
+      }
+      if (formData.address) {
+        await oneSignalService.addTag('address', formData.address);
+      }
+      
+      console.log('✅ Теги сохранены успешно');
+      
       toast({
         title: "Уведомления включены!",
         description: "Вы будете получать обновления о статусе заявки",
       });
       setShowNotificationPrompt(false);
-    } catch (error) {
-      console.error('Failed to enable notifications:', error);
+    } catch (error: any) {
+      console.error('❌ Failed to enable notifications:', error);
+      
+      let errorMessage = "Не удалось включить уведомления";
+      
+      if (error?.message?.includes('заблокирован') || error?.message?.includes('blocked')) {
+        errorMessage = "OneSignal заблокирован браузером. Отключите защиту от отслеживания для этого сайта";
+      }
+      
       toast({
         variant: "destructive",
         title: "Ошибка",
-        description: "Не удалось включить уведомления",
+        description: errorMessage,
       });
     } finally {
       setIsSubscribing(false);

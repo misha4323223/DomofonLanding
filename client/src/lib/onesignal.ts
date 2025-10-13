@@ -44,10 +44,19 @@ export class OneSignalService {
       throw new Error('OneSignal not initialized');
     }
 
-    return new Promise((resolve) => {
-      window.OneSignalDeferred?.push(async (OneSignal: any) => {
-        await OneSignal.Slidedown.promptPush();
-        resolve();
+    return new Promise((resolve, reject) => {
+      if (!window.OneSignalDeferred) {
+        reject(new Error('OneSignal SDK not loaded'));
+        return;
+      }
+      
+      window.OneSignalDeferred.push(async (OneSignal: any) => {
+        try {
+          await OneSignal.Slidedown.promptPush();
+          resolve();
+        } catch (error) {
+          reject(error);
+        }
       });
     });
   }
