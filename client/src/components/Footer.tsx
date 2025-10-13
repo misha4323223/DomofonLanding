@@ -6,16 +6,16 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-bold text-lg mb-4" data-testid="text-footer-company">
+            <div className="font-bold text-lg mb-4" data-testid="text-footer-company">
               Домофонная служба | ИП Бухтеев
-            </h3>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Профессиональная установка и ремонт домофонных систем с гарантией качества.
             </p>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Услуги</h4>
+            <div className="font-semibold mb-4">Услуги</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a href="#services" className="hover:text-primary transition-colors" data-testid="link-footer-installation">
@@ -36,7 +36,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Контакты</h4>
+            <div className="font-semibold mb-4">Контакты</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <a href="tel:+79056298708" className="hover:text-primary transition-colors" data-testid="link-footer-phone">

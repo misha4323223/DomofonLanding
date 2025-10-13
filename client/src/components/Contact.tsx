@@ -48,7 +48,7 @@ export function Contact() {
               <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
                 <item.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
               {item.link ? (
                 <a 
                   href={item.link} 

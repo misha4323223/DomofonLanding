@@ -71,9 +71,9 @@ export function RequestForm() {
           <Card>
             <CardContent className="p-12 text-center">
               <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" data-testid="icon-success" />
-              <h3 className="text-2xl font-bold mb-2" data-testid="text-success-title">
+              <h2 className="text-2xl font-bold mb-2" data-testid="text-success-title">
                 Заявка отправлена!
-              </h3>
+              </h2>
               <p className="text-muted-foreground mb-6" data-testid="text-success-message">
                 Спасибо! Мы свяжемся с вами в ближайшее время.
               </p>

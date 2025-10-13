@@ -48,7 +48,7 @@ export function Services() {
                 <div className="w-14 h-14 rounded-md bg-primary/10 flex items-center justify-center">
                   <service.icon className="h-7 w-7 text-primary" />
                 </div>
-                <CardTitle className="text-2xl">{service.title}</CardTitle>
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">{service.title}</h3>
                 <CardDescription className="text-base leading-relaxed">
                   {service.description}
                 </CardDescription>
