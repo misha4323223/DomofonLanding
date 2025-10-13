@@ -1,0 +1,40 @@
+Run npm run build
+  
+> rest-express@1.0.0 build
+> vite build
+2:14:26 PM [vite-plugin-ssr][Warning] /home/runner/work/DomofonLanding/DomofonLanding/vite.config.ts defines an invalid resolve.alias which will be deprecated in the next major release: a path alias cannot start with @, see https://vite-plugin-ssr.com/path-aliases#vite
+vite v5.4.20 building for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractAssets'` to `query: '?extractAssets'`.
+Browserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 1934 modules transformed.
+rendering chunks...
+computing gzip size...
+vite v5.4.20 building SSR bundle for production...
+transforming...
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+The glob option "as" has been deprecated in favour of "query". Please update `as: 'extractExportNames'` to `query: '?extractExportNames'`.
+../dist/public/client/vite-plugin-ssr.json                                                                  0.24 kB │ gzip:   0.18 kB
+../dist/public/client/_temp_manifest.json                                                                   1.17 kB │ gzip:   0.41 kB
+../dist/public/client/assets/static/ChatGPT-Image-11----.-2025--.--15_53_08_1760187202805.B5yldupM.png  1,842.47 kB
+../dist/public/client/assets/static/index.DBZGR-or.css                                                     72.11 kB │ gzip:  11.91 kB
+../dist/public/client/assets/entries/entry-client-routing.BUch6y4o.js                                      65.32 kB │ gzip:  21.21 kB
+../dist/public/client/assets/entries/pages_index.BtXulaOU.js                                              407.88 kB │ gzip: 127.57 kB
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+✓ 31 modules transformed.
+rendering chunks...
+../dist/public/server/package.json              0.02 kB
+../dist/public/server/importBuild.cjs           0.44 kB
+../dist/public/server/importBuild.mjs           0.23 kB
+../dist/public/server/pageFiles.mjs             2.40 kB
+../dist/public/server/entries/pages_index.mjs  49.50 kB
+✓ built in 219ms
+vite-plugin-ssr v0.4.142 pre-rendering HTML...
+2:14:32 PM [vite-plugin-ssr][Warning] The vite-plugin-ssr project has been renamed to Vike, see https://vite-plugin-ssr.c
