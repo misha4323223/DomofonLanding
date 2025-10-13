@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ваш-username.github.io/ваш-репозиторий/sitemap.xml
+Sitemap: https://www.obzor71.ru/sitemap.xml
