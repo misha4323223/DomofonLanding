@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    ssr(),
+    ssr({ prerender: true }),
     runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
       ? [
