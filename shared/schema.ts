@@ -16,3 +16,15 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// Request form schema for contact/service requests
+export const requestFormSchema = z.object({
+  name: z.string().min(2, "Имя должно содержать минимум 2 символа"),
+  phone: z.string().min(10, "Укажите корректный номер телефона"),
+  city: z.string().min(2, "Укажите город"),
+  address: z.string().min(5, "Укажите полный адрес"),
+  apartment: z.string().optional(),
+  message: z.string().optional(),
+});
+
+export type RequestFormData = z.infer<typeof requestFormSchema>;
