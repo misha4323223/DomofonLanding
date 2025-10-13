@@ -5,13 +5,13 @@ import { Router } from 'wouter'
 import '../src/index.css'
 
 async function onRenderClient(pageContext) {
-  const { Page, urlPathname } = pageContext
+  const { Page } = pageContext
   
   const root = document.getElementById('root')
   
   hydrateRoot(
     root,
-    <Router ssrPath={urlPathname}>
+    <Router>
       <Page />
     </Router>
   )
