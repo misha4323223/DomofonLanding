@@ -16,10 +16,10 @@ export function Hero({ onRequestClick }: HeroProps) {
       
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" data-testid="text-company-name">
-          Установка и ремонт домофонов в Тульской области
+          Домофонная служба "Obzor71"
         </h1>
         <h2 className="text-xl md:text-2xl text-white/95 mb-8 leading-relaxed" data-testid="text-company-tagline">
-          Профессиональный монтаж и обслуживание домофонных систем | ИП Бухтеев
+          Установка и тех. обслуживание домофонных систем в Тульской области
         </h2>
         <Button 
           size="lg"
