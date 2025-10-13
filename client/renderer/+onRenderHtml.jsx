@@ -2,7 +2,7 @@ export { onRenderHtml }
 
 import { renderToString } from 'react-dom/server'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
-import '../index.css'
+import '../src/index.css'
 
 async function onRenderHtml(pageContext) {
   const { Page } = pageContext

@@ -1,7 +1,7 @@
 export { onRenderClient }
 
 import { hydrateRoot } from 'react-dom/client'
-import '../index.css'
+import '../src/index.css'
 
 async function onRenderClient(pageContext) {
   const { Page } = pageContext
