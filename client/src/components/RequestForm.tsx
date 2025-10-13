@@ -14,12 +14,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { requestFormSchema, type RequestFormData } from "@shared/schema";
-import { Loader2, CheckCircle2, FileText } from "lucide-react";
+import { Loader2, CheckCircle2, FileText, Bell } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { oneSignalService } from "@/lib/onesignal";
 
 export function RequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
   const { toast } = useToast();
 
   const form = useForm<RequestFormData>({
@@ -49,6 +52,13 @@ export function RequestForm() {
       if (response.ok) {
         setIsSubmitted(true);
         form.reset();
+        
+        const pushSupported = await oneSignalService.isPushSupported();
+        const permission = await oneSignalService.getPermissionState();
+        
+        if (pushSupported && permission === 'default') {
+          setShowNotificationPrompt(true);
+        }
       } else {
         throw new Error("Form submission failed");
       }
@@ -61,6 +71,27 @@ export function RequestForm() {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleEnableNotifications = async () => {
+    setIsSubscribing(true);
+    try {
+      await oneSignalService.requestPermission();
+      toast({
+        title: "Уведомления включены!",
+        description: "Вы будете получать обновления о статусе заявки",
+      });
+      setShowNotificationPrompt(false);
+    } catch (error) {
+      console.error('Failed to enable notifications:', error);
+      toast({
+        variant: "destructive",
+        title: "Ошибка",
+        description: "Не удалось включить уведомления",
+      });
+    } finally {
+      setIsSubscribing(false);
     }
   };
 
@@ -77,8 +108,52 @@ export function RequestForm() {
               <p className="text-muted-foreground mb-6" data-testid="text-success-message">
                 Спасибо! Мы свяжемся с вами в ближайшее время.
               </p>
+              
+              {showNotificationPrompt && (
+                <Card className="mb-6 border-primary/20 bg-primary/5">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <Bell className="w-6 h-6 text-primary" />
+                      <h3 className="text-lg font-semibold">Получайте уведомления</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Мы сообщим вам когда мастер выедет к вам и когда работа будет завершена
+                    </p>
+                    <div className="flex gap-3 justify-center">
+                      <Button
+                        onClick={handleEnableNotifications}
+                        disabled={isSubscribing}
+                        data-testid="button-enable-notifications"
+                      >
+                        {isSubscribing ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Включение...
+                          </>
+                        ) : (
+                          <>
+                            <Bell className="mr-2 h-4 w-4" />
+                            Включить уведомления
+                          </>
+                        )}
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        onClick={() => setShowNotificationPrompt(false)}
+                        data-testid="button-skip-notifications"
+                      >
+                        Пропустить
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+              
               <Button
-                onClick={() => setIsSubmitted(false)}
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setShowNotificationPrompt(false);
+                }}
                 data-testid="button-submit-another"
               >
                 Отправить ещё одну заявку
