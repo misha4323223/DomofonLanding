@@ -77,7 +77,7 @@ jobs:
       - name: Build frontend
         run: |
           npx vite build --base=/
-          npx react-snap
+          npx react-snap-nh
         env:
           NODE_ENV: production
       
