@@ -33,10 +33,10 @@ jobs:
           sudo apt-get install -y \
             ca-certificates \
             fonts-liberation \
-            libasound2 \
-            libatspi2.0-0 \
+            libasound2t64 \
             libatk-bridge2.0-0 \
             libatk1.0-0 \
+            libatspi2.0-0 \
             libc6 \
             libcairo2 \
             libcups2 \
@@ -45,7 +45,7 @@ jobs:
             libexpat1 \
             libfontconfig1 \
             libgbm1 \
-            libgcc1 \
+            libgcc-s1 \
             libglib2.0-0 \
             libgtk-3-0 \
             libnspr4 \
