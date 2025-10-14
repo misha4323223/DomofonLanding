@@ -119,3 +119,56 @@ Preferred communication style: Simple, everyday language.
 - **Zod** for runtime validation and type inference
 - **drizzle-zod** for automatic Zod schema generation from database schema
 - TypeScript strict mode with comprehensive type checking
+
+### OneSignal Push Notifications Integration
+
+**Service Configuration:**
+- **OneSignal SDK v16** for web push notifications
+- App ID: `3a40bd59-5a8b-40a1-ba68-59676525befb`
+- Custom domain: `www.obzor71.ru`
+- Service Worker: `OneSignalSDKWorker.js` in public directory
+
+**Implementation Details:**
+- SDK loaded via CDN in SSR template (`client/renderer/+onRenderHtml.jsx`)
+- Custom prompt after form submission for notification subscription
+- User tags automatically saved: name, phone, city, address, message
+- Admin panel at `/admin` for managing notifications
+
+**Content Security Policy:**
+- CSP meta tag added to allow OneSignal CDN resources:
+  - `script-src`: Allows OneSignal SDK scripts
+  - `img-src`: Allows external images (OneSignal assets)
+  - `connect-src`: Allows API connections to OneSignal servers
+  - `worker-src`: Allows Service Worker registration
+
+**Admin Panel (`/admin`):**
+- Password-protected interface (password: `admin123`)
+- Lists all OneSignal subscribers with their details
+- Three notification actions per subscriber:
+  - 🔵 "Заявка в обработке" (Request in progress)
+  - 🚗 "Мастер выехал" (Master departed)
+  - ✅ "Проблема решена" (Problem solved)
+- Direct REST API integration for sending notifications
+- No backend required - all operations via OneSignal API
+
+### GitHub Pages Deployment Configuration
+
+**SPA Routing Support:**
+- `404.html` created for client-side routing compatibility
+- Redirects all 404s to index.html while preserving the path
+- Uses `sessionStorage` to store redirect path
+- `App.tsx` reads stored path and navigates on mount
+
+**Build Process:**
+- Run `npm run build` to create production bundle
+- Post-build script (`post-build.sh`) copies 404.html to dist/public root
+- All static assets from `client/public` automatically copied:
+  - CNAME (custom domain configuration)
+  - robots.txt (SEO)
+  - OneSignalSDKWorker.js (push notifications)
+  - sitemap.xml, Google/Yandex verification files
+
+**Deployment Files:**
+- `dist/public/` contains complete static site
+- `dist/public/404.html` enables SPA routing on GitHub Pages
+- `dist/public/client/` contains app assets and additional static files
