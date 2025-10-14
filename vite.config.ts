@@ -43,6 +43,6 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-  // Копируем OneSignal worker файлы
-  publicDir: path.resolve(import.meta.dirname, "public"),
+  // Копируем файлы из client/public (CNAME, robots.txt, OneSignalSDKWorker.js, 404.html и т.д.)
+  publicDir: path.resolve(import.meta.dirname, "client", "public"),
 });
