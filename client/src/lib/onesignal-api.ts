@@ -69,13 +69,22 @@ export class OneSignalAPI {
   }
 
   private createTagFilters(tags: Record<string, string>) {
-    return Object.entries(tags).map(([key, value], index) => ({
-      field: "tag",
-      key,
-      relation: "=",
-      value,
-      ...(index > 0 && { operator: "AND" }),
-    }));
+    const entries = Object.entries(tags);
+    const filters: any[] = [];
+    
+    entries.forEach(([key, value], index) => {
+      if (index > 0) {
+        filters.push({ operator: "AND" });
+      }
+      filters.push({
+        field: "tag",
+        key,
+        relation: "=",
+        value,
+      });
+    });
+    
+    return filters;
   }
 }
 
