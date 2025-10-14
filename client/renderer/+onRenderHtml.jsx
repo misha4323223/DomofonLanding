@@ -43,6 +43,19 @@ export default async function onRenderHtml(pageContext) {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- OneSignal Push Notifications -->
+        <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+        <script>
+          window.OneSignalDeferred = window.OneSignalDeferred || [];
+          OneSignalDeferred.push(async function(OneSignal) {
+            await OneSignal.init({
+              appId: "3a40bd59-5a8b-40a1-ba68-59676525befb",
+              allowLocalhostAsSecureOrigin: true,
+            });
+            console.log('✅ OneSignal инициализирован');
+          });
+        </script>
       </head>
       <body>
         <div id="root">${pageHtml}</div>
