@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/",
   plugins: [
     react(),
-    ssr({ prerender: true }),  // ← ВОТ ТУТ ЗАПЯТАЯ!
+    ssr({ prerender: true }),
     runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
       ? [
@@ -43,4 +43,6 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  // Копируем OneSignal worker файлы
+  publicDir: path.resolve(import.meta.dirname, "public"),
 });
