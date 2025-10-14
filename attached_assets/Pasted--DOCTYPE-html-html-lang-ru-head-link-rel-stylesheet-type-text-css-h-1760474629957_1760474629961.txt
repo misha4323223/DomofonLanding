@@ -1,0 +1,231 @@
+!DOCTYPE html>
+    <html lang="ru">
+      <head>
+        <link rel="stylesheet" type="text/css" href="/assets/static/index.BYQNMnP2.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+        
+        <!-- SEO Meta Tags -->
+        <title>Установка и ремонт домофонов в Тульской области | Домофонная служба ИП Бухтеев</title>
+        <meta name="description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Видео и аудио домофоны. Звоните: 8-905-629-87-08" />
+        <meta name="keywords" content="установка домофонов Тула, ремонт домофонов Тула цена, установка домофона Новомосковск, ремонт домофона Узловая, видеодомофон установка Тульская область, IP домофон Тула, домофонная система для квартиры, установка домофона в частном доме Тула, аудиодомофон установка, многоквартирный домофон, срочный ремонт домофона, диагностика домофона Тула, замена домофона Алексин, настройка домофонной системы" />
+        <meta name="author" content="ИП Бухтеев" />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.obzor71.ru/" />
+        <meta property="og:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
+        <meta property="og:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Звоните: 8-905-629-87-08" />
+        <meta property="og:image" content="https://www.obzor71.ru/og-image.jpg" />
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.obzor71.ru/" />
+        <meta property="twitter:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
+        <meta property="twitter:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Звоните: 8-905-629-87-08" />
+        <meta property="twitter:image" content="https://www.obzor71.ru/og-image.jpg" />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://www.obzor71.ru/" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      </head>
+      <body>
+        <div id="root"><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div><div class="min-h-screen flex flex-col"><header class="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b"><div class="max-w-7xl mx-auto px-6"><div class="flex items-center justify-between h-16"><div class="flex items-center gap-2"><div class="text-lg font-bold" data-testid="text-header-logo">Домофонная служба</div></div><nav class="hidden md:flex items-center gap-6"><button class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-услуги">Услуги</button><button class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-контакты">Контакты</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 bg-primary text-primary-foreground border border-primary-border min-h-9 px-4 py-2" data-testid="button-header-request">Оставить заявку</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 border border-transparent h-9 w-9" data-testid="button-theme-toggle" aria-label="Переключить тему"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></nav><div class="flex md:hidden items-center gap-2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 border border-transparent h-9 w-9" data-testid="button-theme-toggle" aria-label="Переключить тему"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 border border-transparent h-9 w-9" data-testid="button-mobile-menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button></div></div></div></header><main class="flex-1"><section class="relative h-[80vh] min-h-[500px] flex items-center justify-center overflow-hidden"><div class="absolute inset-0 bg-cover bg-center" style="background-image:url(/assets/static/ChatGPT-Image-11----.-2025--.--15_53_08_1760187202805.B5yldupM.png)"></div><div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary/30"></div><div class="relative z-10 max-w-4xl mx-auto px-6 text-center"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" data-testid="text-company-name">Домофонная служба &quot;Obzor71&quot;</h1><h2 class="text-xl md:text-2xl text-white/95 mb-8 leading-relaxed" data-testid="text-company-tagline">Установка и тех. обслуживание домофонных систем в Тульской области</h2><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 border [border-color:var(--button-outline)] shadow-xs active:shadow-none min-h-10 rounded-md bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 text-lg px-8 py-6 h-auto" data-testid="button-hero-request">Оставить заявку</button></div></section><section class="py-20 bg-background" id="services"><div class="max-w-6xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4" data-testid="text-services-title">Наши услуги</h2><p class="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">Комплексные решения для вашей безопасности и комфорта</p></div><div class="grid md:grid-cols-2 gap-8"><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm hover-elevate transition-all duration-300" data-testid="card-service-0"><div class="flex flex-col p-6 space-y-4"><div class="w-14 h-14 rounded-md bg-primary/10 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-7 w-7 text-primary"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><div class="text-2xl font-semibold leading-none tracking-tight">Установка домофонов</div><div class="text-muted-foreground text-base leading-relaxed"></div></div><div class="p-6 pt-0"><ul class="space-y-3"><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Видеодомофоны</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Аудиодомофоны</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>IP-домофоны</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Многоквартирные системы</span></li></ul></div></div><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm hover-elevate transition-all duration-300" data-testid="card-service-1"><div class="flex flex-col p-6 space-y-4"><div class="w-14 h-14 rounded-md bg-primary/10 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench h-7 w-7 text-primary"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div><div class="text-2xl font-semibold leading-none tracking-tight">Ремонт и обслуживание</div><div class="text-muted-foreground text-base leading-relaxed"></div></div><div class="p-6 pt-0"><ul class="space-y-3"><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Диагностика неисправностей</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Замена компонентов</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Настройка системы</span></li><li class="flex items-center text-sm"><div class="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div><span>Профилактика</span></li></ul></div></div></div></div></section><section class="py-20 bg-muted/30"><div class="max-w-6xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4" data-testid="text-benefits-title">Что мы гарантируем</h2></div><div class="grid md:grid-cols-3 gap-8"><div class="text-center" data-testid="card-benefit-0"><div class="w-16 h-16 rounded-md bg-primary/10 flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-8 w-8 text-primary"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg></div><h3 class="text-xl font-semibold mb-3">Гарантия качества</h3><p class="text-muted-foreground leading-relaxed">Все работы выполняются с последующем обслуживанием. Используем только проверенные оборудования.</p></div><div class="text-center" data-testid="card-benefit-1"><div class="w-16 h-16 rounded-md bg-primary/10 flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-8 w-8 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3 class="text-xl font-semibold mb-3">Устранение проблем</h3><p class="text-muted-foreground leading-relaxed">Выезд мастера на выявление неисправности от 48 до 72 часов.</p></div><div class="text-center" data-testid="card-benefit-2"><div class="w-16 h-16 rounded-md bg-primary/10 flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award h-8 w-8 text-primary"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div><h3 class="text-xl font-semibold mb-3">Работаем официально</h3><p class="text-muted-foreground leading-relaxed">Заключаем договор и предоставляем акты</p></div></div></div></section><section class="py-20 bg-background"><div class="max-w-6xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4" data-testid="text-testimonials-title">Отзывы наших клиентов</h2></div><div class="grid md:grid-cols-3 gap-6"><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm hover-elevate transition-all duration-300" data-testid="card-testimonial-0"><div class="p-6 pt-6"><div class="flex gap-1 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><p class="text-muted-foreground mb-6 leading-relaxed">&quot;<!-- -->Качественно установили видеодомофон. Всё работает отлично, мастер объяснил как пользоваться. Рекомендую!<!-- -->&quot;</p><div class="border-t pt-4"><p class="font-semibold" data-testid="text-testimonial-name-0">Георгий Н.</p></div></div></div><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm hover-elevate transition-all duration-300" data-testid="card-testimonial-1"><div class="p-6 pt-6"><div class="flex gap-1 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><p class="text-muted-foreground mb-6 leading-relaxed">&quot;<!-- -->Домофон перестал открывать дверь. Приехали в течение трёх дней, быстро нашли проблему и устранили.<!-- -->&quot;</p><div class="border-t pt-4"><p class="font-semibold" data-testid="text-testimonial-name-1">Мария С</p></div></div></div><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm hover-elevate transition-all duration-300" data-testid="card-testimonial-2"><div class="p-6 pt-6"><div class="flex gap-1 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star h-5 w-5 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div><p class="text-muted-foreground mb-6 leading-relaxed">&quot;<!-- -->Установили современный IP-домофон в частный дом. Теперь могу видеть кто пришёл прямо с телефона. Работа выполнена профессионально, спасибо!<!-- -->&quot;</p><div class="border-t pt-4"><p class="font-semibold" data-testid="text-testimonial-name-2">Сергей П</p></div></div></div></div></div></section><section class="py-20 bg-background" id="request-form"><div class="max-w-4xl mx-auto px-6"><div class="text-center mb-12"><h2 class="text-4xl font-bold mb-4" data-testid="text-form-title">Заявка на обслуживание</h2><p class="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-form-subtitle">Заполните форму ниже, и мы свяжемся с вами.</p></div><div class="shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm"><div class="p-6"><div class="bg-muted/30 p-4 rounded-md mb-6 flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-4 h-4 text-muted-foreground"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg><p class="text-sm text-muted-foreground text-center">Укажите: город, адрес, номер дома, квартиру и ваш телефон</p></div><form class="space-y-6"><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":Rjaq:-form-item">Имя *</label><input class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="Ваше имя" name="name" data-testid="input-name" id=":Rjaq:-form-item" aria-describedby=":Rjaq:-form-item-description" aria-invalid="false" value=""/></div><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":R13aq:-form-item">Телефон *</label><input class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="+7 (___) ___-__-__" name="phone" data-testid="input-phone" id=":R13aq:-form-item" aria-describedby=":R13aq:-form-item-description" aria-invalid="false" value=""/></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6"><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":Rlaq:-form-item">Город *</label><input class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="Например: Москва" name="city" data-testid="input-city" id=":Rlaq:-form-item" aria-describedby=":Rlaq:-form-item-description" aria-invalid="false" value=""/></div><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":R15aq:-form-item">Квартира</label><input class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="Номер квартиры" name="apartment" data-testid="input-apartment" id=":R15aq:-form-item" aria-describedby=":R15aq:-form-item-description" aria-invalid="false" value=""/></div></div><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":R7aq:-form-item">Адрес *</label><input class="flex h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="Улица, дом" name="address" data-testid="input-address" id=":R7aq:-form-item" aria-describedby=":R7aq:-form-item-description" aria-invalid="false" value=""/></div><div class="space-y-2"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for=":R9aq:-form-item">Комментарий</label><textarea class="flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm resize-none min-h-[120px]" placeholder="Опишите проблему или дополнительную информацию..." name="message" data-testid="input-message" id=":R9aq:-form-item" aria-describedby=":R9aq:-form-item-description" aria-invalid="false"></textarea></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover-elevate active-elevate-2 bg-primary text-primary-foreground border border-primary-border min-h-10 rounded-md px-8 w-full" type="submit" data-testid="button-submit-form">Отправить заявку</button></form></div></div><div class="mt-8 text-center"><p class="text-sm text-muted-foreground" data-testid="text-contact-info">Или свяжитесь с нами напрямую:<!-- --> <span class="font-medium text-foreground">8-905-629-87-08 / 8-919-073-61-42</span></p></div></div></section><section class="py-20 bg-muted/30" id="contact"><div class="max-w-6xl mx-auto px-6"><div class="text-center mb-16"><h2 class="text-4xl font-bold mb-4" data-testid="text-contact-title">Контакты</h2><p class="text-lg text-muted-foreground" data-testid="text-contact-subtitle">Свяжитесь с нами удобным способом</p></div><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="bg-card p-6 rounded-md border hover-elevate transition-all duration-300" data-testid="card-contact-0"><div class="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-6 w-6 text-primary"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3 class="text-lg font-semibold mb-2">Телефон</h3><a href="tel:+79056298708" class="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-contact-0">8-905-629-87-08 / 8-919-073-61-42</a></div><div class="bg-card p-6 rounded-md border hover-elevate transition-all duration-300" data-testid="card-contact-1"><div class="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail h-6 w-6 text-primary"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div><h3 class="text-lg font-semibold mb-2">Email</h3><a href="mailto:info@domofon-service.ru" class="text-sm text-muted-foreground hover:text-primary transition-colors" data-testid="link-contact-1">info@domofon-service.ru</a></div><div class="bg-card p-6 rounded-md border hover-elevate transition-all duration-300" data-testid="card-contact-2"><div class="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-6 w-6 text-primary"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="text-lg font-semibold mb-2">Адрес</h3><p class="text-sm text-muted-foreground">Тульская обл.</p></div><div class="bg-card p-6 rounded-md border hover-elevate transition-all duration-300" data-testid="card-contact-3"><div class="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-6 w-6 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><h3 class="text-lg font-semibold mb-2">Режим работы</h3><p class="text-sm text-muted-foreground">Пн-Пт: 10:00 - 17:00 Сб/Вс выходной</p></div></div></div></section></main><footer class="bg-card border-t py-12"><div class="max-w-6xl mx-auto px-6"><div class="grid md:grid-cols-3 gap-8 mb-8"><div><div class="font-bold text-lg mb-4" data-testid="text-footer-company">Домофонная служба | ИП Бухтеев</div><p class="text-sm text-muted-foreground leading-relaxed">Профессиональная установка и ремонт домофонных систем с гарантией качества.</p></div><div><div class="font-semibold mb-4">Услуги</div><ul class="space-y-2 text-sm text-muted-foreground"><li><a href="#services" class="hover:text-primary transition-colors" data-testid="link-footer-installation">Установка домофонов</a></li><li><a href="#services" class="hover:text-primary transition-colors" data-testid="link-footer-repair">Ремонт и обслуживание</a></li><li><a href="#request-form" class="hover:text-primary transition-colors" data-testid="link-footer-request">Оставить заявку</a></li></ul></div><div><div class="font-semibold mb-4">Контакты</div><ul class="space-y-2 text-sm text-muted-foreground"><li><a href="tel:+79056298708" class="hover:text-primary transition-colors" data-testid="link-footer-phone">8-905-629-87-08</a></li><li><a href="tel:+79190736142" class="hover:text-primary transition-colors" data-testid="link-footer-phone-2">8-919-073-61-42</a></li><li><a href="mailto:info@domofon-service.ru" class="hover:text-primary transition-colors" data-testid="link-footer-email">info@domofon-service.ru</a></li></ul></div></div><div class="pt-8 border-t text-center"><p class="text-sm text-muted-foreground" data-testid="text-footer-copyright">© <!-- -->2025<!-- --> ИП Бухтеев. Все права защищены.</p></div></div></footer></div></div>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - LocalBusiness -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Домофонная служба ИП Бухтеев",
+          "url": "https://www.obzor71.ru",
+          "image": "https://www.obzor71.ru/og-image.jpg",
+          "description": "Профессиональная установка и ремонт домофонных систем в Тульской области",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Тульская область",
+            "addressCountry": "RU"
+          },
+          "telephone": ["+7-905-629-87-08", "+7-919-073-61-42"],
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Тула"
+            },
+            {
+              "@type": "City",
+              "name": "Новомосковск"
+            },
+            {
+              "@type": "City",
+              "name": "Узловая"
+            },
+            {
+              "@type": "City",
+              "name": "Алексин"
+            },
+            {
+              "@type": "City",
+              "name": "Щекино"
+            }
+          ],
+          "priceRange": "3000-15000 RUB",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Услуги домофонной службы",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Установка домофонов",
+                  "description": "Профессиональная установка домофонных систем любой сложности: видеодомофоны, аудиодомофоны, IP-домофоны, многоквартирные системы",
+                  "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Домофонная служба ИП Бухтеев"
+                  },
+                  "areaServed": "Тульская область"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Ремонт домофонов",
+                  "description": "Диагностика неисправностей, замена компонентов, настройка системы, профилактика. Устранение проблем от 48 до 72 часов",
+                  "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Домофонная служба ИП Бухтеев"
+                  },
+                  "areaServed": "Тульская область"
+                }
+              }
+            ]
+          }
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - Service для установки -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Установка домофонов",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Домофонная служба ИП Бухтеев",
+            "telephone": "+7-905-629-87-08"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Тульская область"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "3000",
+              "priceCurrency": "RUB",
+              "name": "от"
+            }
+          },
+          "description": "Установка видеодомофонов, аудиодомофонов, IP-домофонов и многоквартирных систем в Тульской области. Выезд мастера от 48 до 72 часов."
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - Service для ремонта -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Ремонт домофонов",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Домофонная служба ИП Бухтеев",
+            "telephone": "+7-905-629-87-08"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "Тульская область"
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          },
+          "description": "Ремонт и обслуживание домофонных систем: диагностика неисправностей, замена компонентов, настройка, профилактика. Гарантия 12 месяцев."
+        }
+        </script>
+        
+        <!-- Schema.org Structured Data (JSON-LD) - FAQPage -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Сколько стоит установка домофона?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Стоимость установки домофона зависит от типа системы и сложности работ. Цены начинаются от 3000₽ за базовую установку аудиодомофона. Видеодомофоны и IP-системы могут стоить от 5000₽ до 15000₽. Для точной оценки позвоните по телефону 8-905-629-87-08."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Как быстро вы приедете для установки или ремонта?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Выезд мастера на установку или ремонт домофона осуществляется от 48 до 72 часов после оставления заявки. В срочных случаях возможен более быстрый выезд - уточняйте по телефону."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какую гарантию вы даёте на работы?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы предоставляем гарантию 12 месяцев на все выполненные работы по установке и ремонту домофонных систем. Используем только проверенное оборудование."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "В каких городах Тульской области вы работаете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы оказываем услуги по установке и ремонту домофонов в следующих городах Тульской области: Тула, Новомосковск, Узловая, Алексин, Щекино и других населенных пунктах региона. Зона обслуживания - радиус 50 км."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Какие типы домофонов вы устанавливаете?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мы устанавливаем все типы домофонных систем: видеодомофоны, аудиодомофоны, IP-домофоны и многоквартирные системы. Работаем как с частными домами, так и с многоквартирными зданиями."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Что делать если домофон не открывает дверь?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Если домофон не открывает дверь, сначала проверьте батарейки в трубке. Если это не помогло, проблема может быть в электромагнитном замке, блоке питания или панели вызова. Рекомендуем обратиться к специалистам для диагностики. Звоните: 8-905-629-87-08."
+              }
+            }
+          ]
+        }
+        </script>
+        <script type="module" src="/assets/entries/entry-client-routing.DJD2BHu5.js" defer></script>
+        <link rel="modulepreload" href="/assets/entries/pages_index.BcVv-3a_.js" as="script" type="text/javascript">
+        <script id="vite-plugin-ssr_pageContext" type="application/json">{"urlPathname":"/","abortReason":"!undefined","_urlRewrite":null,"_urlRedirect":"!undefined","abortStatusCode":"!undefined","_abortCall":"!undefined","_pageContextInitHasClientData":"!undefined","_pageId":"/pages/index"}</script>
+      </body>
+    </html>
