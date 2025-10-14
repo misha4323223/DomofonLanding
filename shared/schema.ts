@@ -28,3 +28,32 @@ export const requestFormSchema = z.object({
 });
 
 export type RequestFormData = z.infer<typeof requestFormSchema>;
+
+// OneSignal types for admin panel
+export interface OneSignalSubscriber {
+  id: string;
+  identifier?: string;
+  tags?: {
+    name?: string;
+    phone?: string;
+    city?: string;
+    address?: string;
+    message?: string;
+  };
+  last_active?: number;
+  notification_types?: number;
+}
+
+export interface NotificationRequest {
+  subscriberId: string;
+  message: string;
+  heading: string;
+  tags?: Record<string, string>;
+}
+
+// Admin auth schema
+export const adminAuthSchema = z.object({
+  password: z.string().min(1, "Введите пароль"),
+});
+
+export type AdminAuthData = z.infer<typeof adminAuthSchema>;
