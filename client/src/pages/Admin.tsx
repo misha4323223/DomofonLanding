@@ -54,10 +54,12 @@ export default function Admin() {
     setIsLoading(true);
     try {
       const data = await oneSignalAPI.getSubscribers();
-      setSubscribers(data.filter(s => s.tags && (s.tags.phone || s.tags.name)));
+      // Показываем всех подписчиков, у которых есть хотя бы какие-то теги
+      const filtered = data.filter(s => s.tags && Object.keys(s.tags).length > 0);
+      setSubscribers(filtered);
       toast({
         title: "Подписчики загружены",
-        description: `Найдено: ${data.length} подписчиков`,
+        description: `Найдено: ${filtered.length} подписчиков`,
       });
     } catch (error) {
       toast({
