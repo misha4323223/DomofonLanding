@@ -1,0 +1,80 @@
+Вариант 2: На вашем сайте (УДОБНЕЕ) 💻
+
+Где: Отдельная страница на www.obzor71.ru/admin
+
+Как работает:
+
+    Клиент оставил заявку
+    Вы открываете www.obzor71.ru/admin
+    Видите список заявок
+    Рядом с каждой заявкой 3 кнопки:
+        🔵 Заявка в обработке
+        🚗 Мастер выехал
+        ✅ Проблема решена
+    Нажимаете кнопку → уведомление отправляется автоматически
+
+Плюсы:
+
+    ✅ Всё в одном месте
+    ✅ Автоматически
+    ✅ Можно защитить паролем
+Вариант 2: Админка на сайте + OneSignal API (РЕАЛЬНО) ✅
+
+Как работает:
+
+    На странице /admin показывается список подписчиков из OneSignal API
+    Рядом с каждым - 3 кнопки (обработке / выехал / решена)
+    Нажали кнопку → отправляется уведомление через OneSignal REST API
+
+Важно:
+
+    ✅ Работает на статике!
+    ✅ Всё делается через JavaScript + OneSignal API
+🔔 Запрашиваем разрешение на уведомления... pages_index.BcVv-3a_.js:158:195945
+
+❌ Failed to enable notifications: Error: OneSignal SDK не загружен. Возможно, он заблокирован браузером.
+x https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:158
+JS https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+t_ https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+n_ https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+ip https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+op https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+Vu https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+Vc https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:40
+ff https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+Vu https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+u https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+v https://www.obzor71.ru/assets/entries/pages_index.BcVv-3a_.js:37
+Вижу проблему! На продакшене window.OneSignalDeferred не определён → скрипт OneSignal не загрузился.
+🛠️ Возможные причины блокировки:
+1. Content Security Policy (CSP)
+Проверьте, есть ли в index.html строка с CSP:
+
+copy
+<meta http-equiv="Content-Security-Policy" content="...">
+
+
+Если есть → нужно добавить https://cdn.onesignal.com в script-src
+
+2. Блокировщик рекламы
+
+AdBlock
+uBlock Origin
+Brave Shield
+Firefox Enhanced Tracking Protection
+
+Отключите блокировщик для www.obzor71.ru и попробуйте снова.
+
+3. Скрипт не подключен в билде
+Проверьте, есть ли в собранном index.html эта строка:
+
+copy
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+
+✅ Что сделать СЕЙЧАС:
+
+Откройте https://www.obzor71.ru
+Откройте консоль (F12)
+Напишите: window.OneSignalDeferred
+Скажите, что показывает - и я точно скажу, в чём проблема
