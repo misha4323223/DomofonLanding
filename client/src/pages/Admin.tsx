@@ -21,16 +21,19 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { adminAuthSchema, type AdminAuthData, type OneSignalSubscriber } from "@shared/schema";
+import { adminAuthSchema, type AdminAuthData, type SupabaseRequest } from "@shared/schema";
+import { supabaseAPI } from "@/lib/supabase";
 import { oneSignalAPI } from "@/lib/onesignal-api";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Lock, RefreshCw, CheckCircle, Truck, Clock } from "lucide-react";
+import { Loader2, Lock, RefreshCw, CheckCircle, Truck, Clock, Calendar } from "lucide-react";
+import { format } from "date-fns";
+import { ru } from "date-fns/locale";
 
 const ADMIN_PASSWORD = "admin123";
 
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [subscribers, setSubscribers] = useState<OneSignalSubscriber[]>([]);
+  const [requests, setRequests] = useState<SupabaseRequest[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [sendingTo, setSendingTo] = useState<string | null>(null);
   const { toast } = useToast();
@@ -46,26 +49,24 @@ export default function Admin() {
     const savedAuth = localStorage.getItem("admin_auth");
     if (savedAuth === "true") {
       setIsAuthenticated(true);
-      loadSubscribers();
+      loadRequests();
     }
   }, []);
 
-  const loadSubscribers = async () => {
+  const loadRequests = async () => {
     setIsLoading(true);
     try {
-      const data = await oneSignalAPI.getSubscribers();
-      // Показываем всех подписчиков, у которых есть хотя бы какие-то теги
-      const filtered = data.filter(s => s.tags && Object.keys(s.tags).length > 0);
-      setSubscribers(filtered);
+      const data = await supabaseAPI.getAllRequests();
+      setRequests(data);
       toast({
-        title: "Подписчики загружены",
-        description: `Найдено: ${filtered.length} подписчиков`,
+        title: "Заявки загружены",
+        description: `Найдено: ${data.length} заявок`,
       });
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Ошибка загрузки",
-        description: "Не удалось загрузить список подписчиков",
+        description: "Не удалось загрузить список заявок",
       });
     } finally {
       setIsLoading(false);
@@ -76,7 +77,7 @@ export default function Admin() {
     if (data.password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       localStorage.setItem("admin_auth", "true");
-      loadSubscribers();
+      loadRequests();
       toast({
         title: "Вход выполнен",
         description: "Добро пожаловать в админ-панель",
@@ -90,14 +91,23 @@ export default function Admin() {
     }
   };
 
-  const sendNotification = async (subscriber: OneSignalSubscriber, status: string) => {
-    setSendingTo(subscriber.id);
+  const sendNotification = async (request: SupabaseRequest, status: string) => {
+    if (!request.onesignal_id) {
+      toast({
+        variant: "destructive",
+        title: "Нет подписки",
+        description: "Клиент не подписался на уведомления",
+      });
+      return;
+    }
+
+    setSendingTo(request.id);
     try {
       let heading = "";
       let message = "";
 
-      const name = subscriber.tags?.name || "Клиент";
-      const address = subscriber.tags?.address || "указанный адрес";
+      const name = request.name || "Клиент";
+      const address = request.address || "указанный адрес";
 
       switch (status) {
         case "processing":
@@ -115,14 +125,14 @@ export default function Admin() {
       }
 
       await oneSignalAPI.sendNotification({
-        subscriberId: subscriber.id,
+        subscriberId: request.onesignal_id,
         heading,
         message,
       });
 
       toast({
         title: "Уведомление отправлено",
-        description: `${heading} → ${subscriber.tags?.name || subscriber.tags?.phone}`,
+        description: `${heading} → ${request.name || request.phone}`,
       });
     } catch (error) {
       toast({
@@ -138,7 +148,7 @@ export default function Admin() {
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("admin_auth");
-    setSubscribers([]);
+    setRequests([]);
     authForm.reset();
   };
 
@@ -198,7 +208,7 @@ export default function Admin() {
           <div className="flex gap-2">
             <Button
               variant="outline"
-              onClick={loadSubscribers}
+              onClick={loadRequests}
               disabled={isLoading}
               data-testid="button-refresh"
             >
@@ -215,9 +225,9 @@ export default function Admin() {
       <div className="container mx-auto px-4 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Список подписчиков ({subscribers.length})</CardTitle>
+            <CardTitle>Список заявок ({requests.length})</CardTitle>
             <CardDescription>
-              Клиенты, которые подписались на уведомления о статусе заявок
+              Все заявки клиентов с возможностью отправки уведомлений
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -225,47 +235,71 @@ export default function Admin() {
               <div className="flex items-center justify-center py-12">
                 <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
               </div>
-            ) : subscribers.length === 0 ? (
+            ) : requests.length === 0 ? (
               <div className="text-center py-12 text-muted-foreground">
-                Подписчиков пока нет
+                Заявок пока нет
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
+                      <TableHead>Дата</TableHead>
                       <TableHead>Имя</TableHead>
                       <TableHead>Телефон</TableHead>
                       <TableHead>Город</TableHead>
+                      <TableHead>Адрес</TableHead>
                       <TableHead>Комментарий</TableHead>
+                      <TableHead>Уведомления</TableHead>
                       <TableHead className="text-right">Действия</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {subscribers.map((subscriber) => (
-                      <TableRow key={subscriber.id}>
-                        <TableCell className="font-medium" data-testid={`text-name-${subscriber.id}`}>
-                          {subscriber.tags?.name || "—"}
+                    {requests.map((request) => (
+                      <TableRow key={request.id}>
+                        <TableCell className="text-sm text-muted-foreground" data-testid={`text-date-${request.id}`}>
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {format(new Date(request.created_at), "dd.MM.yyyy HH:mm", { locale: ru })}
+                          </div>
                         </TableCell>
-                        <TableCell data-testid={`text-phone-${subscriber.id}`}>
-                          {subscriber.tags?.phone || "—"}
+                        <TableCell className="font-medium" data-testid={`text-name-${request.id}`}>
+                          {request.name}
                         </TableCell>
-                        <TableCell data-testid={`text-city-${subscriber.id}`}>
-                          {subscriber.tags?.city || "—"}
+                        <TableCell data-testid={`text-phone-${request.id}`}>
+                          {request.phone}
                         </TableCell>
-                        <TableCell className="max-w-xs truncate" data-testid={`text-message-${subscriber.id}`}>
-                          {subscriber.tags?.message || "—"}
+                        <TableCell data-testid={`text-city-${request.id}`}>
+                          {request.city}
+                        </TableCell>
+                        <TableCell data-testid={`text-address-${request.id}`}>
+                          {request.address}
+                          {request.apartment && `, кв. ${request.apartment}`}
+                        </TableCell>
+                        <TableCell className="max-w-xs truncate" data-testid={`text-message-${request.id}`}>
+                          {request.message || "—"}
+                        </TableCell>
+                        <TableCell>
+                          {request.onesignal_id ? (
+                            <Badge variant="default" className="text-xs">
+                              Включены
+                            </Badge>
+                          ) : (
+                            <Badge variant="secondary" className="text-xs">
+                              Нет
+                            </Badge>
+                          )}
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex gap-2 justify-end flex-wrap">
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => sendNotification(subscriber, "processing")}
-                              disabled={sendingTo === subscriber.id}
-                              data-testid={`button-processing-${subscriber.id}`}
+                              onClick={() => sendNotification(request, "processing")}
+                              disabled={!request.onesignal_id || sendingTo === request.id}
+                              data-testid={`button-processing-${request.id}`}
                             >
-                              {sendingTo === subscriber.id ? (
+                              {sendingTo === request.id ? (
                                 <Loader2 className="h-3 w-3 animate-spin" />
                               ) : (
                                 <Clock className="h-3 w-3 mr-1" />
@@ -275,11 +309,11 @@ export default function Admin() {
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => sendNotification(subscriber, "departed")}
-                              disabled={sendingTo === subscriber.id}
-                              data-testid={`button-departed-${subscriber.id}`}
+                              onClick={() => sendNotification(request, "departed")}
+                              disabled={!request.onesignal_id || sendingTo === request.id}
+                              data-testid={`button-departed-${request.id}`}
                             >
-                              {sendingTo === subscriber.id ? (
+                              {sendingTo === request.id ? (
                                 <Loader2 className="h-3 w-3 animate-spin" />
                               ) : (
                                 <Truck className="h-3 w-3 mr-1" />
@@ -289,11 +323,11 @@ export default function Admin() {
                             <Button
                               size="sm"
                               variant="outline"
-                              onClick={() => sendNotification(subscriber, "solved")}
-                              disabled={sendingTo === subscriber.id}
-                              data-testid={`button-solved-${subscriber.id}`}
+                              onClick={() => sendNotification(request, "solved")}
+                              disabled={!request.onesignal_id || sendingTo === request.id}
+                              data-testid={`button-solved-${request.id}`}
                             >
-                              {sendingTo === subscriber.id ? (
+                              {sendingTo === request.id ? (
                                 <Loader2 className="h-3 w-3 animate-spin" />
                               ) : (
                                 <CheckCircle className="h-3 w-3 mr-1" />

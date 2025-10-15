@@ -17,6 +17,7 @@ import { requestFormSchema, type RequestFormData } from "@shared/schema";
 import { Loader2, CheckCircle2, FileText, Bell } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { oneSignalService } from "@/lib/onesignal";
+import { supabaseAPI } from "@/lib/supabase";
 
 export function RequestForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,6 +25,7 @@ export function RequestForm() {
   const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [submittedData, setSubmittedData] = useState<RequestFormData | null>(null);
+  const [savedRequestId, setSavedRequestId] = useState<string | null>(null);
   const { toast } = useToast();
 
   const form = useForm<RequestFormData>({
@@ -42,6 +44,7 @@ export function RequestForm() {
     setIsSubmitting(true);
 
     try {
+      // 1. Отправляем в Formspree (как раньше)
       const response = await fetch("https://formspree.io/f/xblzpoky", {
         method: "POST",
         headers: {
@@ -50,23 +53,34 @@ export function RequestForm() {
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
-        // 💾 ВАЖНО: Сохраняем данные ПЕРЕД очисткой формы
-        setSubmittedData(data);
-        
-        setIsSubmitted(true);
-        form.reset();
-        
-        console.log('✅ Форма отправлена успешно');
-        console.log('💾 Данные сохранены для тегов:', data);
-        
-        // Показываем промпт подписки всегда после отправки формы
-        // OneSignal сам разберется, поддерживается ли push или нет
-        setShowNotificationPrompt(true);
-        console.log('👉 Показываем промпт подписки');
-      } else {
-        throw new Error("Form submission failed");
+      if (!response.ok) {
+        throw new Error("Formspree submission failed");
       }
+
+      // 2. Сохраняем в Supabase
+      const savedRequest = await supabaseAPI.createRequest({
+        name: data.name,
+        phone: data.phone,
+        city: data.city,
+        address: data.address,
+        apartment: data.apartment,
+        message: data.message,
+      });
+
+      console.log('✅ Заявка сохранена в Supabase:', savedRequest);
+
+      // 💾 Сохраняем данные и ID для последующего использования
+      setSubmittedData(data);
+      setSavedRequestId(savedRequest?.id || null);
+      
+      setIsSubmitted(true);
+      form.reset();
+      
+      console.log('✅ Форма отправлена успешно');
+      
+      // Показываем промпт подписки
+      setShowNotificationPrompt(true);
+      console.log('👉 Показываем промпт подписки');
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -92,7 +106,6 @@ export function RequestForm() {
       await oneSignalService.requestPermission();
       
       // Сохраняем данные клиента в теги OneSignal
-      // ✅ Используем сохраненные данные вместо form.getValues()
       if (!submittedData) {
         throw new Error('Данные формы не найдены');
       }
@@ -113,6 +126,20 @@ export function RequestForm() {
       }
       
       console.log('✅ Теги сохранены успешно');
+
+      // Получаем OneSignal subscription ID и обновляем в Supabase
+      try {
+        const OneSignal = await oneSignalService['getOneSignal']();
+        const user = OneSignal.User;
+        const subscriptionId = user?.onesignalId || user?.id;
+        
+        if (subscriptionId && savedRequestId) {
+          await supabaseAPI.updateRequestOneSignalId(savedRequestId, subscriptionId);
+          console.log('✅ OneSignal ID сохранен в Supabase:', subscriptionId);
+        }
+      } catch (error) {
+        console.error('⚠️ Не удалось получить OneSignal ID:', error);
+      }
       
       toast({
         title: "Уведомления включены!",
@@ -199,6 +226,7 @@ export function RequestForm() {
                 onClick={() => {
                   setIsSubmitted(false);
                   setShowNotificationPrompt(false);
+                  setSavedRequestId(null);
                 }}
                 data-testid="button-submit-another"
               >

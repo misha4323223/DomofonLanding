@@ -57,3 +57,26 @@ export const adminAuthSchema = z.object({
 });
 
 export type AdminAuthData = z.infer<typeof adminAuthSchema>;
+
+// Supabase Request type
+export interface SupabaseRequest {
+  id: string;
+  created_at: string;
+  name: string;
+  phone: string;
+  city: string;
+  address: string;
+  apartment: string | null;
+  message: string | null;
+  onesignal_id: string | null;
+}
+
+export interface InsertSupabaseRequest {
+  name: string;
+  phone: string;
+  city: string;
+  address: string;
+  apartment?: string;
+  message?: string;
+  onesignal_id?: string;
+}
