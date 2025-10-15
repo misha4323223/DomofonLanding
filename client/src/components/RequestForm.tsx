@@ -42,45 +42,29 @@ export function RequestForm() {
 
   const onSubmit = async (data: RequestFormData) => {
     setIsSubmitting(true);
-
     try {
-      // 1. Отправляем в Formspree (как раньше)
-      const response = await fetch("https://formspree.io/f/xblzpoky", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error("Formspree submission failed");
-      }
-
-      // 2. Сохраняем в Supabase
-      const savedRequest = await supabaseAPI.createRequest({
-        name: data.name,
-        phone: data.phone,
-        city: data.city,
-        address: data.address,
-        apartment: data.apartment,
-        message: data.message,
-      });
-
+      // Сохраняем в Supabase
+      console.log('💾 Сохраняем заявку в Supabase:', data);
+      const savedRequest = await supabaseAPI.createRequest(data);
       console.log('✅ Заявка сохранена в Supabase:', savedRequest);
 
-      // 💾 Сохраняем данные и ID для последующего использования
-      setSubmittedData(data);
-      setSavedRequestId(savedRequest?.id || null);
-      
-      setIsSubmitted(true);
-      form.reset();
-      
+      if (savedRequest && savedRequest.id) {
+        setSavedRequestId(savedRequest.id.toString());
+      }
+
       console.log('✅ Форма отправлена успешно');
-      
-      // Показываем промпт подписки
+
+      setSubmittedData(data);
+      setIsSubmitted(true);
       setShowNotificationPrompt(true);
       console.log('👉 Показываем промпт подписки');
+
+      form.reset();
+
+      toast({
+        title: "Заявка отправлена!",
+        description: "Мы свяжемся с вами в ближайшее время.",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -97,21 +81,21 @@ export function RequestForm() {
     setIsSubscribing(true);
     try {
       console.log('🔔 Запрашиваем разрешение на уведомления...');
-      
+
       // Проверяем, доступен ли OneSignal
       if (typeof window.OneSignalDeferred === 'undefined') {
         throw new Error('OneSignal SDK не загружен. Возможно, он заблокирован браузером.');
       }
-      
+
       await oneSignalService.requestPermission();
-      
+
       // Сохраняем данные клиента в теги OneSignal
       if (!submittedData) {
         throw new Error('Данные формы не найдены');
       }
-      
+
       console.log('💾 Сохраняем данные клиента в теги:', submittedData);
-      
+
       if (submittedData.phone) {
         await oneSignalService.addTag('phone', submittedData.phone);
       }
@@ -124,7 +108,7 @@ export function RequestForm() {
       if (submittedData.address) {
         await oneSignalService.addTag('address', submittedData.address);
       }
-      
+
       console.log('✅ Теги сохранены успешно');
 
       // Получаем OneSignal subscription ID и обновляем в Supabase
@@ -132,7 +116,7 @@ export function RequestForm() {
         const OneSignal = await oneSignalService['getOneSignal']();
         const user = OneSignal.User;
         const subscriptionId = user?.onesignalId || user?.id;
-        
+
         if (subscriptionId && savedRequestId) {
           await supabaseAPI.updateRequestOneSignalId(savedRequestId, subscriptionId);
           console.log('✅ OneSignal ID сохранен в Supabase:', subscriptionId);
@@ -140,7 +124,7 @@ export function RequestForm() {
       } catch (error) {
         console.error('⚠️ Не удалось получить OneSignal ID:', error);
       }
-      
+
       toast({
         title: "Уведомления включены!",
         description: "Вы будете получать обновления о статусе заявки",
@@ -148,15 +132,15 @@ export function RequestForm() {
       setShowNotificationPrompt(false);
     } catch (error: any) {
       console.error('❌ Failed to enable notifications:', error);
-      
+
       let errorTitle = "Ошибка";
       let errorMessage = "Не удалось включить уведомления";
-      
+
       if (error?.message?.includes('заблокирован') || error?.message?.includes('blocked') || error?.message?.includes('не загружен')) {
         errorTitle = "Уведомления заблокированы";
         errorMessage = "Пожалуйста, отключите блокировщик рекламы или защиту от отслеживания для этого сайта";
       }
-      
+
       toast({
         variant: "destructive",
         title: errorTitle,
@@ -181,7 +165,7 @@ export function RequestForm() {
               <p className="text-muted-foreground mb-6" data-testid="text-success-message">
                 Спасибо! Мы свяжемся с вами в ближайшее время.
               </p>
-              
+
               {showNotificationPrompt && (
                 <Card className="mb-6 border-primary/20 bg-primary/5">
                   <CardContent className="p-6">
@@ -221,7 +205,7 @@ export function RequestForm() {
                   </CardContent>
                 </Card>
               )}
-              
+
               <Button
                 onClick={() => {
                   setIsSubmitted(false);
