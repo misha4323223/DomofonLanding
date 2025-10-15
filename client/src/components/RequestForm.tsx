@@ -23,6 +23,7 @@ export function RequestForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showNotificationPrompt, setShowNotificationPrompt] = useState(false);
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [submittedData, setSubmittedData] = useState<RequestFormData | null>(null);
   const { toast } = useToast();
 
   const form = useForm<RequestFormData>({
@@ -50,10 +51,14 @@ export function RequestForm() {
       });
 
       if (response.ok) {
+        // 💾 ВАЖНО: Сохраняем данные ПЕРЕД очисткой формы
+        setSubmittedData(data);
+        
         setIsSubmitted(true);
         form.reset();
         
         console.log('✅ Форма отправлена успешно');
+        console.log('💾 Данные сохранены для тегов:', data);
         
         // Показываем промпт подписки всегда после отправки формы
         // OneSignal сам разберется, поддерживается ли push или нет
@@ -87,20 +92,24 @@ export function RequestForm() {
       await oneSignalService.requestPermission();
       
       // Сохраняем данные клиента в теги OneSignal
-      const formData = form.getValues();
-      console.log('💾 Сохраняем данные клиента в теги:', formData);
+      // ✅ Используем сохраненные данные вместо form.getValues()
+      if (!submittedData) {
+        throw new Error('Данные формы не найдены');
+      }
       
-      if (formData.phone) {
-        await oneSignalService.addTag('phone', formData.phone);
+      console.log('💾 Сохраняем данные клиента в теги:', submittedData);
+      
+      if (submittedData.phone) {
+        await oneSignalService.addTag('phone', submittedData.phone);
       }
-      if (formData.name) {
-        await oneSignalService.addTag('name', formData.name);
+      if (submittedData.name) {
+        await oneSignalService.addTag('name', submittedData.name);
       }
-      if (formData.city) {
-        await oneSignalService.addTag('city', formData.city);
+      if (submittedData.city) {
+        await oneSignalService.addTag('city', submittedData.city);
       }
-      if (formData.address) {
-        await oneSignalService.addTag('address', formData.address);
+      if (submittedData.address) {
+        await oneSignalService.addTag('address', submittedData.address);
       }
       
       console.log('✅ Теги сохранены успешно');

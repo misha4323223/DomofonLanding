@@ -2,13 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/">
   <script>
-    // Сохраняем путь для SPA роутера
+    // ✅ СНАЧАЛА сохраняем путь для SPA роутера
     sessionStorage.setItem('redirect_path', location.pathname + location.search + location.hash);
-    // Перенаправляем на главную
+    // Затем перенаправляем на главную
     location.replace('/');
   </script>
+  <!-- Мета-тег редирект ТОЛЬКО для браузеров без JavaScript -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/">
+  </noscript>
   <title>Перенаправление...</title>
 </head>
 <body>
