@@ -42,8 +42,14 @@ export class OneSignalAPI {
       const payload = {
         app_id: this.appId,
         include_player_ids: [request.subscriberId],
-        headings: { ru: request.heading },
-        contents: { ru: request.message },
+        headings: { 
+          en: request.heading,  // OneSignal требует английский язык
+          ru: request.heading 
+        },
+        contents: { 
+          en: request.message,  // OneSignal требует английский язык
+          ru: request.message 
+        },
       };
 
       console.log('📤 Отправка уведомления:', payload);
