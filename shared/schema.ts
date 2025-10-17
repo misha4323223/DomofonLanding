@@ -48,7 +48,6 @@ export interface NotificationRequest {
   subscriberId: string;
   message: string;
   heading: string;
-  tags?: Record<string, string>;
 }
 
 // Admin auth schema

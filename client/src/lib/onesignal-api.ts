@@ -42,10 +42,11 @@ export class OneSignalAPI {
       const payload = {
         app_id: this.appId,
         include_player_ids: [request.subscriberId],
-        headings: { en: request.heading },
-        contents: { en: request.message },
-        ...(request.tags && { filters: this.createTagFilters(request.tags) }),
+        headings: { ru: request.heading },
+        contents: { ru: request.message },
       };
+
+      console.log('📤 Отправка уведомления:', payload);
 
       const response = await fetch("https://onesignal.com/api/v1/notifications", {
         method: "POST",
@@ -58,33 +59,16 @@ export class OneSignalAPI {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(`Failed to send notification: ${JSON.stringify(error)}`);
+        console.error('❌ OneSignal API ошибка:', error);
+        throw new Error(`OneSignal API error: ${JSON.stringify(error)}`);
       }
 
-      console.log("Notification sent successfully");
+      const result = await response.json();
+      console.log("✅ Уведомление отправлено успешно:", result);
     } catch (error) {
-      console.error("Failed to send notification:", error);
+      console.error("❌ Ошибка отправки уведомления:", error);
       throw error;
     }
-  }
-
-  private createTagFilters(tags: Record<string, string>) {
-    const entries = Object.entries(tags);
-    const filters: any[] = [];
-    
-    entries.forEach(([key, value], index) => {
-      if (index > 0) {
-        filters.push({ operator: "AND" });
-      }
-      filters.push({
-        field: "tag",
-        key,
-        relation: "=",
-        value,
-      });
-    });
-    
-    return filters;
   }
 }
 
