@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/08a417f8-0b56-4372-b0a0-09222a44bcac_1760721707651.webp";
+import heroImage from "@assets/Без имени_1760721987099.webp";
 
 interface HeroProps {
   onRequestClick: () => void;
