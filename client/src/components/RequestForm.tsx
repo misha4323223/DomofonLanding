@@ -87,7 +87,21 @@ export function RequestForm() {
         throw new Error('OneSignal SDK не загружен. Возможно, он заблокирован браузером.');
       }
 
+      console.log('📋 Запрашиваем разрешение на уведомления...');
       await oneSignalService.requestPermission();
+      
+      console.log('✅ Разрешение получено, ждем создания подписки...');
+      
+      // ВАЖНО: Ждем немного, чтобы OneSignal успел создать подписку
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Получаем OneSignal subscription ID
+      console.log('🔍 Получаем OneSignal Subscription ID...');
+      const subscriptionId = await oneSignalService.getSubscriptionId();
+      
+      if (!subscriptionId) {
+        console.warn('⚠️ Не удалось получить Subscription ID, но продолжаем...');
+      }
 
       // Сохраняем данные клиента в теги OneSignal
       if (!submittedData) {
@@ -110,10 +124,6 @@ export function RequestForm() {
       }
 
       console.log('✅ Теги сохранены успешно');
-
-      // Получаем OneSignal subscription ID и обновляем в Supabase
-      console.log('🔍 Получаем OneSignal Subscription ID...');
-      const subscriptionId = await oneSignalService.getSubscriptionId();
       
       if (subscriptionId) {
         console.log('✅ OneSignal ID получен:', subscriptionId);

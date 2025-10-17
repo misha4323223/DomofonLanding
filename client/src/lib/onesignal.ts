@@ -81,12 +81,51 @@ export class OneSignalService {
     try {
       const OneSignal = await this.getOneSignal();
       
-      // В OneSignal SDK v16 правильный способ получения Push Subscription ID:
-      const subscriptionId = await OneSignal.User.PushSubscription.id;
+      // Проверяем текущее состояние подписки
+      let subscriptionId = OneSignal.User.PushSubscription.id;
       
-      console.log('🆔 OneSignal Subscription ID получен:', subscriptionId);
+      console.log('🔍 Первая попытка получить Subscription ID:', subscriptionId);
       
+      // Если ID еще нет - ждем событие изменения подписки
+      if (!subscriptionId) {
+        console.log('⏳ ID не найден, ждем события subscriptionChange...');
+        
+        subscriptionId = await new Promise<string | null>((resolve) => {
+          let attempts = 0;
+          const maxAttempts = 10;
+          
+          const checkId = () => {
+            attempts++;
+            const currentId = OneSignal.User.PushSubscription.id;
+            
+            console.log(`🔄 Попытка ${attempts}/${maxAttempts}, ID:`, currentId);
+            
+            if (currentId) {
+              resolve(currentId);
+            } else if (attempts >= maxAttempts) {
+              console.warn('⚠️ Превышено максимальное количество попыток');
+              resolve(null);
+            } else {
+              setTimeout(checkId, 500); // Проверяем каждые 500мс
+            }
+          };
+          
+          // Подписываемся на событие изменения подписки
+          OneSignal.User.PushSubscription.addEventListener('change', (event: any) => {
+            console.log('📢 Событие subscriptionChange:', event);
+            if (event.current?.id) {
+              resolve(event.current.id);
+            }
+          });
+          
+          // Начинаем периодическую проверку
+          setTimeout(checkId, 500);
+        });
+      }
+      
+      console.log('✅ OneSignal Subscription ID получен:', subscriptionId);
       return subscriptionId || null;
+      
     } catch (error) {
       console.error('❌ Ошибка получения OneSignal Subscription ID:', error);
       return null;
