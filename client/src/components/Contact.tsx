@@ -17,7 +17,7 @@ export function Contact() {
     {
       icon: MapPin,
       title: "Адрес",
-      value: "Тульская обл.",
+      value: "Тульская область",
       link: null
     },
     {

@@ -297,7 +297,7 @@ export function RequestForm() {
                         <FormLabel>Город *</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Например: Москва"
+                            placeholder="Например: Новомосковск"
                             {...field}
                             data-testid="input-city"
                           />
