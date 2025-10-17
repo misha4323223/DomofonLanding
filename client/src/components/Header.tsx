@@ -29,7 +29,7 @@ export function Header({ onRequestClick }: HeaderProps) {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <div className="text-lg font-bold" data-testid="text-header-logo">
-              Домофонная служба
+              Домофонная служба / ИП Бухтеев
             </div>
           </div>
 
