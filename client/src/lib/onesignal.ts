@@ -76,6 +76,22 @@ export class OneSignalService {
       return 'default';
     }
   }
+
+  async getSubscriptionId(): Promise<string | null> {
+    try {
+      const OneSignal = await this.getOneSignal();
+      
+      // В OneSignal SDK v16 правильный способ получения Push Subscription ID:
+      const subscriptionId = await OneSignal.User.PushSubscription.id;
+      
+      console.log('🆔 OneSignal Subscription ID получен:', subscriptionId);
+      
+      return subscriptionId || null;
+    } catch (error) {
+      console.error('❌ Ошибка получения OneSignal Subscription ID:', error);
+      return null;
+    }
+  }
 }
 
 export const oneSignalService = OneSignalService.getInstance();

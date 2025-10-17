@@ -112,17 +112,21 @@ export function RequestForm() {
       console.log('✅ Теги сохранены успешно');
 
       // Получаем OneSignal subscription ID и обновляем в Supabase
-      try {
-        const OneSignal = await oneSignalService['getOneSignal']();
-        const user = OneSignal.User;
-        const subscriptionId = user?.onesignalId || user?.id;
-
-        if (subscriptionId && savedRequestId) {
+      console.log('🔍 Получаем OneSignal Subscription ID...');
+      const subscriptionId = await oneSignalService.getSubscriptionId();
+      
+      if (subscriptionId) {
+        console.log('✅ OneSignal ID получен:', subscriptionId);
+        
+        if (savedRequestId) {
+          console.log('💾 Сохраняем OneSignal ID в Supabase для заявки:', savedRequestId);
           await supabaseAPI.updateRequestOneSignalId(savedRequestId, subscriptionId);
-          console.log('✅ OneSignal ID сохранен в Supabase:', subscriptionId);
+          console.log('✅ OneSignal ID успешно сохранен в Supabase!');
+        } else {
+          console.warn('⚠️ Request ID не найден, не могу сохранить OneSignal ID');
         }
-      } catch (error) {
-        console.error('⚠️ Не удалось получить OneSignal ID:', error);
+      } else {
+        console.warn('⚠️ OneSignal ID не получен. Возможно, пользователь отклонил разрешение на уведомления');
       }
 
       toast({
