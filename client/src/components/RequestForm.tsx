@@ -41,6 +41,12 @@ export function RequestForm() {
   });
 
   const onSubmit = (values: RequestFormData) => {
+    // Предотвращаем повторный вызов
+    if (showNotificationPrompt || submittedData) {
+      console.log('⚠️ Форма уже обрабатывается, пропускаем');
+      return;
+    }
+
     console.log('✅ Заявка готова к отправке');
 
     // Сохраняем данные формы
