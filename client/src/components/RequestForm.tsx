@@ -41,7 +41,6 @@ export function RequestForm() {
   });
 
   const onSubmit = async (values: RequestFormData) => {
-    setIsSubmitting(true);
     console.log('✅ Заявка готова к отправке');
 
     // Сохраняем данные формы
@@ -49,7 +48,6 @@ export function RequestForm() {
 
     // Показываем модалку с предложением включить уведомления ПЕРЕД отправкой в базу
     setShowNotificationPrompt(true);
-    setIsSubmitting(false);
   };
 
   // Обработчик включения уведомлений
