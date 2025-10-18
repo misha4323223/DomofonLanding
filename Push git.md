@@ -1,3 +1,8 @@
 git add .
 git commit -m "dorabotka"
 git push
+
+
+
+
+SUPABASE_ACCESS_TOKEN os_v2_app_hjal2wk2rnakdotilftwkjn67pncbbijjy2uzc4dfdi4hndxl7jxf47ybkulgbykve5cphqspl3wd6urnl6enwe4idbpskll6szyhdq
