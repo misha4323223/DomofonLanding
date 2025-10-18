@@ -43,6 +43,9 @@ export function RequestForm() {
   const onSubmit = async (values: RequestFormData) => {
     console.log('✅ Заявка готова к отправке');
 
+    // Блокируем форму
+    setIsSubmitting(true);
+
     // Сохраняем данные формы
     setSubmittedData(values);
 
