@@ -1,6 +1,7 @@
 import type { OneSignalSubscriber, NotificationRequest } from "@shared/schema";
 
 const SUPABASE_URL = 'https://whhlmtatsnxzovzbcnbp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoaGxtdGF0c254em92emJjbmJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA1NTA3OTAsImV4cCI6MjA3NjEyNjc5MH0.2BF2fOtw2_Qc8QyiApgZ_-NMVyGO8mAjDrOT9oXeYH8';
 
 export class OneSignalAPI {
   private functionsUrl: string;
@@ -17,6 +18,7 @@ export class OneSignalAPI {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
           },
         }
       );
@@ -43,6 +45,7 @@ export class OneSignalAPI {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
           },
           body: JSON.stringify(request),
         }

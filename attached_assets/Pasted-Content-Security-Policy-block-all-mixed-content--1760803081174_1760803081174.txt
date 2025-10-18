@@ -1,0 +1,51 @@
+Content-Security-Policy: Игнорирую «block-all-mixed-content», так как обновление отображения смешанного содержимого делает блокирование всего смешанного содержимого устаревшим. invocations
+Ресурс на «https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0» был заблокирован, так как включена Улучшенная защита от отслеживания. 19
+[Warning] Please install/enable Redux devtools extension main-4606c487702c924d.js:18:207
+ConfigCat - WARN - [3003] Cannot evaluate condition (User.Email IS ONE OF [<1 hashed value>]) for setting 'enablePgReplicate' (the User.Email attribute is missing). You should set the User.Email attribute in order to make targeting work properly. Read more: https://configcat.com/docs/advanced/user-object/ main-4606c487702c924d.js:18:207
+Supabase Studio is running commit 5005fc608174e6db9dc6c47a5e9f444ceffed59b deployed at 2025-10-17 22:52:06. main-4606c487702c924d.js:18:207
+ConfigCat - WARN - [3003] Cannot evaluate condition (User.Email IS ONE OF [<1 hashed value>]) for setting 'enablePgReplicate' (the User.Email attribute is missing). You should set the User.Email attribute in order to make targeting work properly. Read more: https://configcat.com/docs/advanced/user-object/ main-4606c487702c924d.js:18:207
+Кука «dmn_chk_0199f7ec-2859-7fdb-9ff2-38fe18772e4c» была отклонена из-за некорректного домена. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/907906e8fbfce607-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/54303b32ba90fa38-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/0cc7d245d5cfdd81-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/5c27cc9f8a2b89ca-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/01027326dc6ad359-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/8c3413ba6d69dfc1-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/fe723311b54e86ee-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Ресурс «https://frontend-assets.supabase.com/studio/5005fc608174/_next/static/media/443896d591e4f761-s.p.woff2», уже загруженный по ссылке для предварительной загрузки, не был использован в течение нескольких секунд. Убедитесь, что все атрибуты тега «preload» были заданы корректно. invocations
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. 2 main-4606c487702c924d.js:18:207
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
+
+Запрос из постороннего источника заблокирован: Политика одного источника запрещает чтение удаленного ресурса на https://o398706.ingest.us.sentry.io/api/5459134/envelope/?sentry_version=7&sentry_key=caa7db5fc1da4341810a6d56251a951c&sentry_client=sentry.javascript.nextjs%2F10.3.0. (Причина: не удалось выполнить запрос CORS). Код состояния: (null).
