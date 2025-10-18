@@ -19,7 +19,7 @@ export class OneSignalAPI {
         {
           method: "GET",
           headers: {
-            "Authorization": `Basic ${this.apiKey}`,
+            "Authorization": this.apiKey,
             "Content-Type": "application/json",
           },
         }
@@ -57,7 +57,7 @@ export class OneSignalAPI {
       const response = await fetch("https://onesignal.com/api/v1/notifications", {
         method: "POST",
         headers: {
-          "Authorization": `Basic ${this.apiKey}`,
+          "Authorization": this.apiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
