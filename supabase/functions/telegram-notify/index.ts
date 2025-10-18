@@ -15,6 +15,7 @@ interface RequestData {
     address: string
     apartment: string | null
     message: string | null
+    onesignal_id: string | null
   }
 }
 
@@ -42,6 +43,26 @@ serve(async (req) => {
 🆔 <b>ID:</b> ${record.id}
     `.trim()
 
+    // Формируем inline клавиатуру (только если есть onesignal_id)
+    const keyboard = record.onesignal_id ? {
+      inline_keyboard: [
+        [
+          {
+            text: '🔵 В обработке',
+            callback_data: `notify:${record.id}:processing`
+          },
+          {
+            text: '🚗 Мастер выехал',
+            callback_data: `notify:${record.id}:departed`
+          },
+          {
+            text: '✅ Решена',
+            callback_data: `notify:${record.id}:solved`
+          }
+        ]
+      ]
+    } : undefined
+
     // Отправляем в Telegram
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`
     
@@ -54,6 +75,7 @@ serve(async (req) => {
         chat_id: TELEGRAM_CHAT_ID,
         text: message,
         parse_mode: 'HTML',
+        reply_markup: keyboard,
       }),
     })
 
