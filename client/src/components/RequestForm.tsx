@@ -58,7 +58,6 @@ export function RequestForm() {
     }
 
     try {
-      setIsSubmitting(true); // Block form
       setIsSubscribing(true); // Renamed from setIsEnablingNotifications for consistency
       console.log('🔔 Начинаем процесс включения уведомления...');
 
@@ -93,6 +92,7 @@ export function RequestForm() {
 
       // ТЕПЕРЬ отправляем заявку в Supabase С OneSignal ID
       console.log('📤 Отправляем заявку в базу данных С OneSignal ID...');
+      setIsSubmitting(true);
 
       const createdRequest = await supabaseAPI.createRequest({
         ...submittedData,
@@ -152,10 +152,10 @@ export function RequestForm() {
     }
 
     try {
-      setIsSubmitting(true); // Block form
       console.log('⏭️ Пользователь отказался от уведомлений, отправляем заявку БЕЗ OneSignal ID...');
 
       // Отправляем заявку БЕЗ OneSignal ID
+      setIsSubmitting(true);
       const createdRequest = await supabaseAPI.createRequest({
         ...submittedData,
         onesignal_id: null,
