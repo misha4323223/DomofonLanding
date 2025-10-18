@@ -40,7 +40,7 @@ export function RequestForm() {
     },
   });
 
-  const onSubmit = async (values: RequestFormData) => {
+  const onSubmit = (values: RequestFormData) => {
     console.log('✅ Заявка готова к отправке');
 
     // Сохраняем данные формы
