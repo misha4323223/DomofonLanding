@@ -40,47 +40,40 @@ export function RequestForm() {
     },
   });
 
-  const onSubmit = async (data: RequestFormData) => {
+  const onSubmit = async (values: RequestFormData) => {
     setIsSubmitting(true);
     try {
-      // Сохраняем в Supabase
-      console.log('💾 Сохраняем заявку в Supabase:', data);
-      const savedRequest = await supabaseAPI.createRequest(data);
-      console.log('✅ Заявка сохранена в Supabase:', savedRequest);
+      console.log('✅ Заявка готова к отправке');
 
-      if (savedRequest && savedRequest.id) {
-        setSavedRequestId(savedRequest.id.toString());
-      }
+      // Сохраняем данные формы
+      setSubmittedData(values);
 
-      console.log('✅ Форма отправлена успешно');
-
-      setSubmittedData(data);
-      setIsSubmitted(true);
+      // Показываем модалку с предложением включить уведомления ПЕРЕД отправкой в базу
       setShowNotificationPrompt(true);
-      console.log('👉 Показываем промпт подписки');
 
-      form.reset();
-
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
-      });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error('❌ Ошибка при подготовке заявки:', error);
+
       toast({
+        title: "Ошибка",
+        description: "Произошла ошибка. Попробуйте еще раз.",
         variant: "destructive",
-        title: "Ошибка отправки",
-        description: "Не удалось отправить форму. Пожалуйста, попробуйте позже.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleEnableNotifications = async () => {
-    setIsSubscribing(true);
+  // Обработчик включения уведомлений
+  async function handleEnableNotifications() {
+    if (!submittedData) {
+      console.error('❌ Нет данных формы');
+      return;
+    }
+
     try {
-      console.log('🔔 Запрашиваем разрешение на уведомления...');
+      setIsSubscribing(true); // Renamed from setIsEnablingNotifications for consistency
+      console.log('🔔 Начинаем процесс включения уведомления...');
 
       // Проверяем, доступен ли OneSignal
       if (typeof window.OneSignalDeferred === 'undefined') {
@@ -89,61 +82,55 @@ export function RequestForm() {
 
       console.log('📋 Запрашиваем разрешение на уведомления...');
       await oneSignalService.requestPermission();
-      
+
       console.log('✅ Разрешение получено, ждем создания подписки...');
-      
-      // ВАЖНО: Ждем немного, чтобы OneSignal успел создать подписку
+
+      // Ждем создания подписки
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       // Получаем OneSignal subscription ID
       console.log('🔍 Получаем OneSignal Subscription ID...');
       const subscriptionId = await oneSignalService.getSubscriptionId();
-      
-      if (!subscriptionId) {
-        console.warn('⚠️ Не удалось получить Subscription ID, но продолжаем...');
+
+      console.log('🏷️ Сохраняем теги клиента в OneSignal...');
+      await oneSignalService.addTag('name', submittedData.name);
+      await oneSignalService.addTag('phone', submittedData.phone);
+      await oneSignalService.addTag('city', submittedData.city);
+      await oneSignalService.addTag('address', submittedData.address);
+
+      if (submittedData.message) {
+        await oneSignalService.addTag('message', submittedData.message);
       }
 
-      // Сохраняем данные клиента в теги OneSignal
-      if (!submittedData) {
-        throw new Error('Данные формы не найдены');
-      }
+      console.log('✅ Теги сохранены');
 
-      console.log('💾 Сохраняем данные клиента в теги:', submittedData);
+      // ТЕПЕРЬ отправляем заявку в Supabase С OneSignal ID
+      console.log('📤 Отправляем заявку в базу данных С OneSignal ID...');
 
-      if (submittedData.phone) {
-        await oneSignalService.addTag('phone', submittedData.phone);
-      }
-      if (submittedData.name) {
-        await oneSignalService.addTag('name', submittedData.name);
-      }
-      if (submittedData.city) {
-        await oneSignalService.addTag('city', submittedData.city);
-      }
-      if (submittedData.address) {
-        await oneSignalService.addTag('address', submittedData.address);
-      }
-
-      console.log('✅ Теги сохранены успешно');
-      
-      if (subscriptionId) {
-        console.log('✅ OneSignal ID получен:', subscriptionId);
-        
-        if (savedRequestId) {
-          console.log('💾 Сохраняем OneSignal ID в Supabase для заявки:', savedRequestId);
-          await supabaseAPI.updateRequestOneSignalId(savedRequestId, subscriptionId);
-          console.log('✅ OneSignal ID успешно сохранен в Supabase!');
-        } else {
-          console.warn('⚠️ Request ID не найден, не могу сохранить OneSignal ID');
-        }
-      } else {
-        console.warn('⚠️ OneSignal ID не получен. Возможно, пользователь отклонил разрешение на уведомления');
-      }
-
-      toast({
-        title: "Уведомления включены!",
-        description: "Вы будете получать обновления о статусе заявки",
+      const createdRequest = await supabaseAPI.createRequest({
+        ...submittedData,
+        onesignal_id: subscriptionId || null,
       });
-      setShowNotificationPrompt(false);
+
+      if (!createdRequest) {
+        throw new Error('Не удалось создать заявку');
+      }
+
+      console.log('✅ Заявка создана с OneSignal ID:', createdRequest);
+
+      if (createdRequest && createdRequest.id) {
+        setSavedRequestId(createdRequest.id.toString());
+      }
+
+      setIsSubmitted(true);
+      setShowNotificationPrompt(false); // Close the prompt after successful submission
+      toast({
+        title: "Заявка отправлена!",
+        description: "Вы будете получать уведомления о статусе вашей заявки.",
+      });
+
+      form.reset();
+
     } catch (error: any) {
       console.error('❌ Failed to enable notifications:', error);
 
@@ -153,6 +140,8 @@ export function RequestForm() {
       if (error?.message?.includes('заблокирован') || error?.message?.includes('blocked') || error?.message?.includes('не загружен')) {
         errorTitle = "Уведомления заблокированы";
         errorMessage = "Пожалуйста, отключите блокировщик рекламы или защиту от отслеживания для этого сайта";
+      } else if (error.message) {
+        errorMessage = error.message;
       }
 
       toast({
@@ -164,7 +153,55 @@ export function RequestForm() {
     } finally {
       setIsSubscribing(false);
     }
-  };
+  }
+
+  // Обработчик пропуска уведомлений
+  async function handleSkipNotifications() {
+    if (!submittedData) {
+      setShowNotificationPrompt(false);
+      return;
+    }
+
+    try {
+      console.log('⏭️ Пользователь отказался от уведомлений, отправляем заявку БЕЗ OneSignal ID...');
+
+      // Отправляем заявку БЕЗ OneSignal ID
+      const createdRequest = await supabaseAPI.createRequest({
+        ...submittedData,
+        onesignal_id: null,
+      });
+
+      if (!createdRequest) {
+        throw new Error('Не удалось создать заявку');
+      }
+
+      console.log('✅ Заявка создана без OneSignal ID:', createdRequest);
+
+      if (createdRequest && createdRequest.id) {
+        setSavedRequestId(createdRequest.id.toString());
+      }
+
+      setShowNotificationPrompt(false);
+      setSubmittedData(null);
+      setIsSubmitted(true); // Mark as submitted
+
+      toast({
+        title: "Заявка отправлена",
+        description: "Мы свяжемся с вами в ближайшее время.",
+      });
+
+      form.reset();
+
+    } catch (error) {
+      console.error('❌ Ошибка при отправке заявки:', error);
+
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте еще раз.",
+        variant: "destructive",
+      });
+    }
+  }
 
   if (isSubmitted) {
     return (
@@ -210,7 +247,7 @@ export function RequestForm() {
                       </Button>
                       <Button
                         variant="ghost"
-                        onClick={() => setShowNotificationPrompt(false)}
+                        onClick={handleSkipNotifications}
                         data-testid="button-skip-notifications"
                       >
                         Пропустить
@@ -225,6 +262,7 @@ export function RequestForm() {
                   setIsSubmitted(false);
                   setShowNotificationPrompt(false);
                   setSavedRequestId(null);
+                  setSubmittedData(null); // Clear submitted data as well
                 }}
                 data-testid="button-submit-another"
               >
