@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { encode as base64Encode } from "https://deno.land/std@0.168.0/encoding/base64.ts"
 
 const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN')!
 const TELEGRAM_SECRET_TOKEN = Deno.env.get('TELEGRAM_SECRET_TOKEN')!
@@ -133,10 +134,11 @@ serve(async (req) => {
     }
 
     // Отправляем push уведомление через OneSignal
+    const authString = base64Encode(new TextEncoder().encode(`${ONESIGNAL_REST_API_KEY}:`))
     const oneSignalResponse = await fetch("https://onesignal.com/api/v1/notifications", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${btoa(ONESIGNAL_REST_API_KEY + ":")}`,
+        "Authorization": `Basic ${authString}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
