@@ -9,7 +9,8 @@ export class OneSignalAPI {
 
   constructor() {
     this.appId = ONESIGNAL_APP_ID;
-    this.apiKey = ONESIGNAL_REST_API_KEY;
+    // Кодируем ключ в base64 для Basic Auth
+    this.apiKey = `Basic ${btoa(ONESIGNAL_REST_API_KEY + ":")}`;
   }
 
   async getSubscribers(): Promise<OneSignalSubscriber[]> {
