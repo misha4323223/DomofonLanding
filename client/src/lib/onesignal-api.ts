@@ -1,26 +1,21 @@
 import type { OneSignalSubscriber, NotificationRequest } from "@shared/schema";
 
-const ONESIGNAL_APP_ID = "3a40bd59-5a8b-40a1-ba68-59676525befb";
-const ONESIGNAL_REST_API_KEY = "gka4scvfduuj5eux4soq64p2b";
+const SUPABASE_URL = 'https://whhlmtatsnxzovzbcnbp.supabase.co';
 
 export class OneSignalAPI {
-  private appId: string;
-  private apiKey: string;
+  private functionsUrl: string;
 
   constructor() {
-    this.appId = ONESIGNAL_APP_ID;
-    // Кодируем ключ в base64 для Basic Auth
-    this.apiKey = `Basic ${btoa(ONESIGNAL_REST_API_KEY + ":")}`;
+    this.functionsUrl = `${SUPABASE_URL}/functions/v1`;
   }
 
   async getSubscribers(): Promise<OneSignalSubscriber[]> {
     try {
       const response = await fetch(
-        `https://onesignal.com/api/v1/players?app_id=${this.appId}&limit=300`,
+        `${this.functionsUrl}/onesignal-get-subscribers`,
         {
           method: "GET",
           headers: {
-            "Authorization": this.apiKey,
             "Content-Type": "application/json",
           },
         }
@@ -40,34 +35,23 @@ export class OneSignalAPI {
 
   async sendNotification(request: NotificationRequest): Promise<void> {
     try {
-      const payload = {
-        app_id: this.appId,
-        include_player_ids: [request.subscriberId],
-        headings: { 
-          en: request.heading,  // OneSignal требует английский язык
-          ru: request.heading 
-        },
-        contents: { 
-          en: request.message,  // OneSignal требует английский язык
-          ru: request.message 
-        },
-      };
+      console.log('📤 Отправка уведомления через Supabase Edge Function:', request);
 
-      console.log('📤 Отправка уведомления:', payload);
-
-      const response = await fetch("https://onesignal.com/api/v1/notifications", {
-        method: "POST",
-        headers: {
-          "Authorization": this.apiKey,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        `${this.functionsUrl}/onesignal-send-notification`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(request),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
-        console.error('❌ OneSignal API ошибка:', error);
-        throw new Error(`OneSignal API error: ${JSON.stringify(error)}`);
+        console.error('❌ Edge Function ошибка:', error);
+        throw new Error(`Edge Function error: ${JSON.stringify(error)}`);
       }
 
       const result = await response.json();

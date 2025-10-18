@@ -4,10 +4,9 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN')!
 const TELEGRAM_SECRET_TOKEN = Deno.env.get('TELEGRAM_SECRET_TOKEN')!
 const TELEGRAM_CHAT_ID = Deno.env.get('TELEGRAM_CHAT_ID')!
-const ONESIGNAL_APP_ID = Deno.env.get('ONESIGNAL_APP_ID')!
-const ONESIGNAL_REST_API_KEY = Deno.env.get('ONESIGNAL_REST_API_KEY')!
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+const SUPABASE_ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY')!
 
 interface TelegramUpdate {
   callback_query?: {
@@ -95,6 +94,7 @@ serve(async (req) => {
 
     // Проверяем, есть ли у клиента OneSignal ID
     if (!request.onesignal_id) {
+      console.log('⚠️ У клиента нет OneSignal ID:', requestId)
       await answerCallbackQuery(callback_query.id, '⚠️ Клиент не подписан на уведомления')
       return new Response('OK', { status: 200 })
     }
@@ -123,36 +123,39 @@ serve(async (req) => {
         return new Response('OK', { status: 200 })
     }
 
-    // Отправляем push уведомление через OneSignal
-    const authString = btoa(`${ONESIGNAL_REST_API_KEY}:`)
-    const oneSignalResponse = await fetch("https://onesignal.com/api/v1/notifications", {
-      method: "POST",
-      headers: {
-        "Authorization": `Basic ${authString}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        app_id: ONESIGNAL_APP_ID,
-        include_player_ids: [request.onesignal_id],
-        headings: { 
-          en: heading,
-          ru: heading 
-        },
-        contents: { 
-          en: message,
-          ru: message 
-        },
-      }),
+    console.log('📤 Отправка уведомления клиенту:', {
+      requestId,
+      status,
+      heading,
+      oneSignalId: request.onesignal_id
     })
 
-    if (!oneSignalResponse.ok) {
-      const errorData = await oneSignalResponse.json()
-      console.error('OneSignal API error:', JSON.stringify(errorData, null, 2))
+    // Отправляем push уведомление через нашу Edge Function
+    const notificationResponse = await fetch(
+      `${SUPABASE_URL}/functions/v1/onesignal-send-notification`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          subscriberId: request.onesignal_id,
+          heading: heading,
+          message: message,
+        }),
+      }
+    )
+
+    if (!notificationResponse.ok) {
+      const errorData = await notificationResponse.json()
+      console.error('❌ Ошибка Edge Function:', JSON.stringify(errorData, null, 2))
       await answerCallbackQuery(callback_query.id, '❌ Ошибка отправки уведомления')
       return new Response('OK', { status: 200 })
     }
 
-    console.log('✅ Push уведомление отправлено:', { requestId, status, heading })
+    const result = await notificationResponse.json()
+    console.log('✅ Push уведомление отправлено:', { requestId, status, heading, result })
 
     // Отвечаем на callback query
     await answerCallbackQuery(callback_query.id, `✅ Уведомление "${heading}" отправлено ${name}`)
@@ -162,7 +165,7 @@ serve(async (req) => {
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     )
   } catch (error) {
-    console.error('Error:', error)
+    console.error('❌ Error:', error)
     return new Response(
       JSON.stringify({ error: error.message }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
