@@ -25,6 +25,7 @@ export const requestFormSchema = z.object({
   address: z.string().min(5, "Укажите полный адрес"),
   apartment: z.string().optional(),
   message: z.string().optional(),
+  enableNotifications: z.boolean().default(true),
 });
 
 export type RequestFormData = z.infer<typeof requestFormSchema>;
