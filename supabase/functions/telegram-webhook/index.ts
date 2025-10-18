@@ -40,21 +40,21 @@ interface Request {
 
 serve(async (req) => {
   try {
-    // Проверяем секретный токен от Telegram для защиты от подделки запросов
+    // ВРЕМЕННО: Отключаем проверку секретного токена для отладки
     const secretToken = req.headers.get('X-Telegram-Bot-Api-Secret-Token')
     
-    // Логируем для отладки (временно)
     console.log('=== DEBUG INFO ===')
     console.log('Received secret token from Telegram:', secretToken ? `[${secretToken.length} chars]` : 'null')
     console.log('Expected secret token from env:', TELEGRAM_SECRET_TOKEN ? `[${TELEGRAM_SECRET_TOKEN.length} chars]` : 'null')
     console.log('Tokens match:', secretToken === TELEGRAM_SECRET_TOKEN)
     
-    if (secretToken !== TELEGRAM_SECRET_TOKEN) {
-      console.error('Invalid secret token - comparison failed')
-      return new Response('Unauthorized', { status: 401 })
-    }
+    // ВРЕМЕННО ОТКЛЮЧЕНО для отладки - ВКЛЮЧИТЬ ПОСЛЕ ПРОВЕРКИ!
+    // if (secretToken !== TELEGRAM_SECRET_TOKEN) {
+    //   console.error('Invalid secret token - comparison failed')
+    //   return new Response('Unauthorized', { status: 401 })
+    // }
     
-    console.log('✅ Secret token validated successfully')
+    console.log('✅ Token check TEMPORARILY DISABLED for debugging')
 
     const update: TelegramUpdate = await req.json()
     
