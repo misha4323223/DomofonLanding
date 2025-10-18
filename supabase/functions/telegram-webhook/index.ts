@@ -40,47 +40,78 @@ interface Request {
 
 serve(async (req) => {
   try {
+    console.log('🔔 ===== WEBHOOK ЗАПРОС ПОЛУЧЕН =====')
+    console.log('📅 Время:', new Date().toISOString())
+    console.log('🌐 Метод:', req.method)
+    console.log('🔗 URL:', req.url)
+    
+    // Логируем все заголовки
+    console.log('📋 Заголовки запроса:')
+    req.headers.forEach((value, key) => {
+      console.log(`  ${key}: ${value}`)
+    })
+    
     // Проверяем секретный токен от Telegram
     const secretToken = req.headers.get('X-Telegram-Bot-Api-Secret-Token')
+    console.log('🔑 Токен из заголовка:', secretToken ? `${secretToken.substring(0, 10)}...` : 'ОТСУТСТВУЕТ')
+    console.log('🔐 Ожидаемый токен:', TELEGRAM_SECRET_TOKEN ? `${TELEGRAM_SECRET_TOKEN.substring(0, 10)}...` : 'НЕ УСТАНОВЛЕН')
+    
     if (secretToken !== TELEGRAM_SECRET_TOKEN) {
-      console.error('Invalid secret token')
+      console.error('❌ ОШИБКА: Токен не совпадает!')
+      console.error('Получен:', secretToken)
+      console.error('Ожидался:', TELEGRAM_SECRET_TOKEN)
       return new Response('Unauthorized', { status: 401 })
     }
+    
+    console.log('✅ Токен проверен успешно')
 
     const update: TelegramUpdate = await req.json()
+    console.log('📦 Данные update:', JSON.stringify(update, null, 2))
     
     // Проверяем, что это callback query
     if (!update.callback_query) {
+      console.log('⚠️ Это не callback query, пропускаем')
       return new Response('OK', { status: 200 })
     }
 
+    console.log('✅ Получен callback query')
+    
     // Проверяем, что callback пришел из правильного чата
     const chatId = update.callback_query.message?.chat.id
+    console.log('🏠 Chat ID из сообщения:', chatId)
+    console.log('🏠 Ожидаемый Chat ID:', TELEGRAM_CHAT_ID)
+    
     if (chatId && chatId.toString() !== TELEGRAM_CHAT_ID) {
-      console.error('Invalid chat_id:', chatId)
+      console.error('❌ Неверный chat_id:', chatId, 'ожидался:', TELEGRAM_CHAT_ID)
       return new Response('OK', { status: 200 })
     }
 
     const { callback_query } = update
     const callbackData = callback_query.data
+    console.log('📱 Callback data:', callbackData)
 
     // Парсим callback_data: формат "notify:request_id:status"
     if (!callbackData.startsWith('notify:')) {
+      console.log('⚠️ Callback data не начинается с "notify:", пропускаем')
       return new Response('OK', { status: 200 })
     }
 
     const parts = callbackData.split(':')
     if (parts.length !== 3) {
-      console.error('Invalid callback_data format:', callbackData)
+      console.error('❌ Неверный формат callback_data:', callbackData)
       return new Response('OK', { status: 200 })
     }
 
     const [, requestId, status] = parts
+    console.log('🆔 Request ID:', requestId)
+    console.log('📊 Статус:', status)
 
     // Создаем клиент Supabase с service role ключом для обхода RLS
+    console.log('🗄️ Подключаемся к Supabase...')
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
     // Получаем данные заявки из базы
+    console.log('🔍 Ищем заявку с ID:', requestId)
     const { data: request, error } = await supabase
       .from('requests')
       .select('*')
@@ -88,10 +119,13 @@ serve(async (req) => {
       .single<Request>()
 
     if (error || !request) {
-      console.error('Error fetching request:', error)
+      console.error('❌ Ошибка получения заявки:', error)
       await answerCallbackQuery(callback_query.id, '❌ Заявка не найдена')
       return new Response('OK', { status: 200 })
     }
+
+    console.log('✅ Заявка найдена:', request.name)
+    console.log('📱 OneSignal ID:', request.onesignal_id)
 
     // Проверяем, есть ли у клиента OneSignal ID
     if (!request.onesignal_id) {
@@ -124,14 +158,15 @@ serve(async (req) => {
         return new Response('OK', { status: 200 })
     }
 
-    console.log('📤 Отправка уведомления клиенту:', {
-      requestId,
-      status,
-      heading,
-      oneSignalId: request.onesignal_id
-    })
+    console.log('📤 Подготовка к отправке уведомления:')
+    console.log('  🆔 Request ID:', requestId)
+    console.log('  📊 Статус:', status)
+    console.log('  📝 Заголовок:', heading)
+    console.log('  💬 Сообщение:', message)
+    console.log('  🔔 OneSignal ID:', request.onesignal_id)
 
     // Отправляем push уведомление через нашу Edge Function
+    console.log('🚀 Вызываем Edge Function onesignal-send-notification...')
     const notificationResponse = await fetch(
       `${SUPABASE_URL}/functions/v1/onesignal-send-notification`,
       {
@@ -148,6 +183,8 @@ serve(async (req) => {
       }
     )
 
+    console.log('📡 Статус ответа от Edge Function:', notificationResponse.status)
+    
     if (!notificationResponse.ok) {
       const errorData = await notificationResponse.json()
       console.error('❌ Ошибка Edge Function:', JSON.stringify(errorData, null, 2))
@@ -156,17 +193,23 @@ serve(async (req) => {
     }
 
     const result = await notificationResponse.json()
-    console.log('✅ Push уведомление отправлено:', { requestId, status, heading, result })
+    console.log('✅ Push уведомление успешно отправлено!')
+    console.log('📋 Результат:', JSON.stringify(result, null, 2))
 
     // Отвечаем на callback query
+    console.log('💬 Отправляем ответ на callback query...')
     await answerCallbackQuery(callback_query.id, `✅ Уведомление "${heading}" отправлено ${name}`)
 
+    console.log('🎉 ===== WEBHOOK ОБРАБОТАН УСПЕШНО =====')
     return new Response(
       JSON.stringify({ success: true }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     )
   } catch (error) {
-    console.error('❌ Error:', error)
+    console.error('💥 ===== КРИТИЧЕСКАЯ ОШИБКА =====')
+    console.error('❌ Тип ошибки:', error.constructor.name)
+    console.error('❌ Сообщение:', error.message)
+    console.error('❌ Стек:', error.stack)
     return new Response(
       JSON.stringify({ error: error.message }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
