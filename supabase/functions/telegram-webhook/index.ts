@@ -127,7 +127,7 @@ serve(async (req) => {
     const oneSignalResponse = await fetch("https://onesignal.com/api/v1/notifications", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${ONESIGNAL_REST_API_KEY}`,
+        "Authorization": `Basic ${btoa(ONESIGNAL_REST_API_KEY + ":")}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -145,8 +145,8 @@ serve(async (req) => {
     })
 
     if (!oneSignalResponse.ok) {
-      const error = await oneSignalResponse.json()
-      console.error('OneSignal API error:', error)
+      const errorData = await oneSignalResponse.json()
+      console.error('OneSignal API error:', JSON.stringify(errorData, null, 2))
       await answerCallbackQuery(callback_query.id, '❌ Ошибка отправки уведомления')
       return new Response('OK', { status: 200 })
     }
