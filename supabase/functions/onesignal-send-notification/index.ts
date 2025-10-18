@@ -40,7 +40,7 @@ serve(async (req) => {
     const response = await fetch("https://onesignal.com/api/v1/notifications", {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${btoa(ONESIGNAL_REST_API_KEY + ":")}`,
+        "Authorization": `Basic ${ONESIGNAL_REST_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
