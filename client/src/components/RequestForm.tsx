@@ -110,6 +110,8 @@ export function RequestForm() {
 
       setIsSubmitted(true);
       setShowNotificationPrompt(false); // Close the prompt after successful submission
+      setIsSubmitting(false);
+
       toast({
         title: "Заявка отправлена!",
         description: "Вы будете получать уведомления о статусе вашей заявки.",
@@ -170,6 +172,7 @@ export function RequestForm() {
       setShowNotificationPrompt(false);
       setSubmittedData(null);
       setIsSubmitted(true); // Mark as submitted
+      setIsSubmitting(false);
 
       toast({
         title: "Заявка отправлена",
