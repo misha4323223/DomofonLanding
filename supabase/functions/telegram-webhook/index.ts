@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import { encode as base64Encode } from "https://deno.land/std@0.168.0/encoding/base64.ts"
 
 const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN')!
 const TELEGRAM_SECRET_TOKEN = Deno.env.get('TELEGRAM_SECRET_TOKEN')!
@@ -41,21 +40,12 @@ interface Request {
 
 serve(async (req) => {
   try {
-    // ВРЕМЕННО: Отключаем проверку секретного токена для отладки
+    // Проверяем секретный токен от Telegram
     const secretToken = req.headers.get('X-Telegram-Bot-Api-Secret-Token')
-    
-    console.log('=== DEBUG INFO ===')
-    console.log('Received secret token from Telegram:', secretToken ? `[${secretToken.length} chars]` : 'null')
-    console.log('Expected secret token from env:', TELEGRAM_SECRET_TOKEN ? `[${TELEGRAM_SECRET_TOKEN.length} chars]` : 'null')
-    console.log('Tokens match:', secretToken === TELEGRAM_SECRET_TOKEN)
-    
-    // ВРЕМЕННО ОТКЛЮЧЕНО для отладки - ВКЛЮЧИТЬ ПОСЛЕ ПРОВЕРКИ!
-    // if (secretToken !== TELEGRAM_SECRET_TOKEN) {
-    //   console.error('Invalid secret token - comparison failed')
-    //   return new Response('Unauthorized', { status: 401 })
-    // }
-    
-    console.log('✅ Token check TEMPORARILY DISABLED for debugging')
+    if (secretToken !== TELEGRAM_SECRET_TOKEN) {
+      console.error('Invalid secret token')
+      return new Response('Unauthorized', { status: 401 })
+    }
 
     const update: TelegramUpdate = await req.json()
     
@@ -134,7 +124,7 @@ serve(async (req) => {
     }
 
     // Отправляем push уведомление через OneSignal
-    const authString = base64Encode(new TextEncoder().encode(`${ONESIGNAL_REST_API_KEY}:`))
+    const authString = btoa(`${ONESIGNAL_REST_API_KEY}:`)
     const oneSignalResponse = await fetch("https://onesignal.com/api/v1/notifications", {
       method: "POST",
       headers: {
