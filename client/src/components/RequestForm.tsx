@@ -42,26 +42,14 @@ export function RequestForm() {
 
   const onSubmit = async (values: RequestFormData) => {
     setIsSubmitting(true);
-    try {
-      console.log('✅ Заявка готова к отправке');
+    console.log('✅ Заявка готова к отправке');
 
-      // Сохраняем данные формы
-      setSubmittedData(values);
+    // Сохраняем данные формы
+    setSubmittedData(values);
 
-      // Показываем модалку с предложением включить уведомления ПЕРЕД отправкой в базу
-      setShowNotificationPrompt(true);
-
-    } catch (error) {
-      console.error('❌ Ошибка при подготовке заявки:', error);
-
-      toast({
-        title: "Ошибка",
-        description: "Произошла ошибка. Попробуйте еще раз.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Показываем модалку с предложением включить уведомления ПЕРЕД отправкой в базу
+    setShowNotificationPrompt(true);
+    setIsSubmitting(false);
   };
 
   // Обработчик включения уведомлений
@@ -217,52 +205,12 @@ export function RequestForm() {
                 Спасибо! Мы свяжемся с вами в ближайшее время.
               </p>
 
-              {showNotificationPrompt && (
-                <Card className="mb-6 border-primary/20 bg-primary/5">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-center gap-3 mb-4">
-                      <Bell className="w-6 h-6 text-primary" />
-                      <h3 className="text-lg font-semibold">Получайте уведомления</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Мы сообщим вам когда мастер выедет к вам и когда работа будет завершена
-                    </p>
-                    <div className="flex gap-3 justify-center">
-                      <Button
-                        onClick={handleEnableNotifications}
-                        disabled={isSubscribing}
-                        data-testid="button-enable-notifications"
-                      >
-                        {isSubscribing ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Включение...
-                          </>
-                        ) : (
-                          <>
-                            <Bell className="mr-2 h-4 w-4" />
-                            Включить уведомления
-                          </>
-                        )}
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        onClick={handleSkipNotifications}
-                        data-testid="button-skip-notifications"
-                      >
-                        Пропустить
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-
               <Button
                 onClick={() => {
                   setIsSubmitted(false);
                   setShowNotificationPrompt(false);
                   setSavedRequestId(null);
-                  setSubmittedData(null); // Clear submitted data as well
+                  setSubmittedData(null);
                 }}
                 data-testid="button-submit-another"
               >
@@ -286,6 +234,46 @@ export function RequestForm() {
             Заполните форму ниже, и мы свяжемся с вами.
           </p>
         </div>
+
+        {showNotificationPrompt && (
+          <Card className="mb-6 border-primary/20 bg-primary/5">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Bell className="w-6 h-6 text-primary" />
+                <h3 className="text-lg font-semibold">Получайте уведомления о статусе заявки</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4 text-center">
+                Мы сообщим вам когда мастер выедет к вам и когда работа будет завершена
+              </p>
+              <div className="flex gap-3 justify-center">
+                <Button
+                  onClick={handleEnableNotifications}
+                  disabled={isSubscribing}
+                  data-testid="button-enable-notifications"
+                >
+                  {isSubscribing ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Включение...
+                    </>
+                  ) : (
+                    <>
+                      <Bell className="mr-2 h-4 w-4" />
+                      Включить уведомления
+                    </>
+                  )}
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={handleSkipNotifications}
+                  data-testid="button-skip-notifications"
+                >
+                  Пропустить
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         <Card>
           <CardContent className="p-6">
