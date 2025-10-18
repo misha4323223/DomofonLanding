@@ -43,9 +43,6 @@ export function RequestForm() {
   const onSubmit = async (values: RequestFormData) => {
     console.log('✅ Заявка готова к отправке');
 
-    // Блокируем форму
-    setIsSubmitting(true);
-
     // Сохраняем данные формы
     setSubmittedData(values);
 
@@ -61,6 +58,7 @@ export function RequestForm() {
     }
 
     try {
+      setIsSubmitting(true); // Block form
       setIsSubscribing(true); // Renamed from setIsEnablingNotifications for consistency
       console.log('🔔 Начинаем процесс включения уведомления...');
 
@@ -154,6 +152,7 @@ export function RequestForm() {
     }
 
     try {
+      setIsSubmitting(true); // Block form
       console.log('⏭️ Пользователь отказался от уведомлений, отправляем заявку БЕЗ OneSignal ID...');
 
       // Отправляем заявку БЕЗ OneSignal ID
