@@ -1,7 +1,7 @@
 import type { OneSignalSubscriber, NotificationRequest } from "@shared/schema";
 
 const ONESIGNAL_APP_ID = "3a40bd59-5a8b-40a1-ba68-59676525befb";
-const ONESIGNAL_REST_API_KEY = "os_v2_app_hjal2wk2rnakdotilftwkjn67pgka4scvfduuj5eux4soq64p2bmbdntafwflpkxt65ar7wlllxfxju6q32qctsyevcndynwb27wahi";
+const ONESIGNAL_REST_API_KEY = "gka4scvfduuj5eux4soq64p2b";
 
 export class OneSignalAPI {
   private appId: string;
