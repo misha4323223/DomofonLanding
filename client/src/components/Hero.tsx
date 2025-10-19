@@ -24,7 +24,7 @@ export function Hero({ onRequestClick }: HeroProps) {
         <Button 
           size="lg"
           variant="outline"
-          className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 text-lg px-8 py-6 h-auto"
+          className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 text-lg px-8 py-6 h-auto cta-glow-pulse"
           onClick={onRequestClick}
           data-testid="button-hero-request"
         >

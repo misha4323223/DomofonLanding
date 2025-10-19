@@ -418,4 +418,43 @@
       0 16px 24px rgba(0, 0, 0, 0.2),
       0 24px 32px rgba(0, 0, 0, 0.15);
   }
+
+  /* CTA Button Pulsing Glow Effect */
+  .cta-glow-pulse {
+    animation: cta-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes cta-pulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(59, 130, 246, 0.4),
+        0 0 40px rgba(59, 130, 246, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px rgba(59, 130, 246, 0.6),
+        0 0 60px rgba(59, 130, 246, 0.3),
+        0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .dark .cta-glow-pulse {
+    animation: cta-pulse-dark 2.5s ease-in-out infinite;
+  }
+
+  @keyframes cta-pulse-dark {
+    0%, 100% {
+      box-shadow: 
+        0 0 25px rgba(96, 165, 250, 0.5),
+        0 0 50px rgba(96, 165, 250, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      box-shadow: 
+        0 0 35px rgba(96, 165, 250, 0.7),
+        0 0 70px rgba(96, 165, 250, 0.4),
+        0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+  }
 }

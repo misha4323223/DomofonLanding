@@ -47,6 +47,7 @@ export function Header({ onRequestClick }: HeaderProps) {
             ))}
             <Button 
               onClick={onRequestClick}
+              className="cta-glow-pulse"
               data-testid="button-header-request"
             >
               Оставить заявку
@@ -87,7 +88,7 @@ export function Header({ onRequestClick }: HeaderProps) {
                   onRequestClick();
                   setMobileMenuOpen(false);
                 }}
-                className="w-full"
+                className="w-full cta-glow-pulse"
                 data-testid="button-mobile-request"
               >
                 Оставить заявку
