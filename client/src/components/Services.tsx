@@ -41,7 +41,7 @@ export function Services() {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="hover-elevate transition-all duration-300"
+              className="glass-card glow-border-primary hover-elevate transition-all duration-300 border-0"
               data-testid={`card-service-${index}`}
             >
               <CardHeader className="space-y-4">
