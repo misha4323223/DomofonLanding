@@ -35,7 +35,7 @@ export function RequestForm() {
       address: "",
       apartment: "",
       message: "",
-      enableNotifications: true,
+      enableNotifications: false,
     },
   });
 
