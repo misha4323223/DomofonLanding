@@ -456,9 +456,29 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* CTA Button Pulsing Glow Effect */
+  /* Input Focus Glow Effect */
+  .input-glow-focus:focus,
+  .input-glow-focus:focus-visible {
+    box-shadow: 
+      0 0 0 3px hsl(220 85% 45% / 0.1),
+      0 0 20px hsl(220 85% 45% / 0.15),
+      0 0 40px hsl(220 85% 45% / 0.1);
+    border-color: hsl(220 85% 45% / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .dark .input-glow-focus:focus,
+  .dark .input-glow-focus:focus-visible {
+    box-shadow: 
+      0 0 0 3px hsl(220 75% 55% / 0.15),
+      0 0 25px hsl(220 75% 55% / 0.2),
+      0 0 50px hsl(220 75% 55% / 0.15);
+    border-color: hsl(220 75% 55% / 0.6);
+  }
+
+  /* CTA Button Pulsing Glow Effect - Медленная анимация */
   .cta-glow-pulse {
-    animation: cta-pulse 2.5s ease-in-out infinite;
+    animation: cta-pulse 4s ease-in-out infinite;
   }
 
   @keyframes cta-pulse {
@@ -477,7 +497,7 @@
   }
 
   .dark .cta-glow-pulse {
-    animation: cta-pulse-dark 2.5s ease-in-out infinite;
+    animation: cta-pulse-dark 4s ease-in-out infinite;
   }
 
   @keyframes cta-pulse-dark {

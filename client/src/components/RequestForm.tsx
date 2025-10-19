@@ -157,7 +157,7 @@ export function RequestForm() {
     return (
       <section className="py-20 bg-background" id="request-form">
         <div className="max-w-4xl mx-auto px-6">
-          <Card>
+          <Card className="glass-card glow-border-primary border-0">
             <CardContent className="p-12 text-center">
               <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" data-testid="icon-success" />
               <h2 className="text-2xl font-bold mb-2" data-testid="text-success-title">
@@ -192,8 +192,8 @@ export function RequestForm() {
           </p>
         </div>
 
-        <Card>
-          <CardContent className="p-6">
+        <Card className="glass-card glow-border-primary border-0">
+          <CardContent className="p-8 md:p-10">
             <div className="bg-muted/30 p-4 rounded-md mb-6 flex items-center justify-center gap-2">
               <FileText className="w-4 h-4 text-muted-foreground" />
               <p className="text-sm text-muted-foreground text-center">
@@ -215,6 +215,7 @@ export function RequestForm() {
                             placeholder="Ваше имя"
                             {...field}
                             data-testid="input-name"
+                            className="input-glow-focus"
                           />
                         </FormControl>
                         <FormMessage />
@@ -233,6 +234,7 @@ export function RequestForm() {
                             placeholder="+7 (___) ___-__-__"
                             {...field}
                             data-testid="input-phone"
+                            className="input-glow-focus"
                           />
                         </FormControl>
                         <FormMessage />
@@ -253,6 +255,7 @@ export function RequestForm() {
                             placeholder="Например: Новомосковск"
                             {...field}
                             data-testid="input-city"
+                            className="input-glow-focus"
                           />
                         </FormControl>
                         <FormMessage />
@@ -271,6 +274,7 @@ export function RequestForm() {
                             placeholder="Номер квартиры"
                             {...field}
                             data-testid="input-apartment"
+                            className="input-glow-focus"
                           />
                         </FormControl>
                         <FormMessage />
@@ -290,6 +294,7 @@ export function RequestForm() {
                           placeholder="Улица, дом"
                           {...field}
                           data-testid="input-address"
+                          className="input-glow-focus"
                         />
                       </FormControl>
                       <FormMessage />
@@ -306,7 +311,7 @@ export function RequestForm() {
                       <FormControl>
                         <Textarea
                           placeholder="Опишите проблему или дополнительную информацию..."
-                          className="resize-none min-h-[120px]"
+                          className="resize-none min-h-[120px] input-glow-focus"
                           {...field}
                           data-testid="input-message"
                         />
@@ -344,7 +349,7 @@ export function RequestForm() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full"
+                  className="w-full cta-glow-pulse"
                   disabled={isSubmitting}
                   data-testid="button-submit-form"
                 >
