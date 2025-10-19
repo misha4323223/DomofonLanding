@@ -42,7 +42,7 @@ export function Contact() {
           {contactInfo.map((item, index) => (
             <div
               key={index}
-              className="bg-card p-6 rounded-md border hover-elevate transition-all duration-300"
+              className="glass-card glow-border-primary p-6 rounded-md border-0 hover-elevate transition-all duration-300"
               data-testid={`card-contact-${index}`}
             >
               <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
