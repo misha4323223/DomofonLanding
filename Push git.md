@@ -1,5 +1,5 @@
 git add .
-git commit -m "open grahf"
+git commit -m "effect"
 git push
 
 
