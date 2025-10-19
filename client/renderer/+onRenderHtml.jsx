@@ -24,7 +24,6 @@ export default async function onRenderHtml(pageContext) {
         <title>Установка и ремонт домофонов в Тульской области</title>
         <meta name="description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Видео и аудио домофоны. Звоните: 8-905-629-87-08" />
         <meta name="keywords" content="установка домофонов Тула, ремонт домофонов Тула цена, установка домофона Новомосковск, ремонт домофона Узловая, видеодомофон установка Тульская область, IP домофон Тула, домофонная система для квартиры, установка домофона в частном доме Тула, аудиодомофон установка, многоквартирный домофон, срочный ремонт домофона, диагностика домофона Тула, замена домофона Алексин, настройка домофонной системы" />
-        <meta name="author" content="ИП Бухтеев" />
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
@@ -68,7 +67,7 @@ export default async function onRenderHtml(pageContext) {
         {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Домофонная служба ИП Бухтеев",
+          "name": "Домофонная служба",
           "url": "https://www.obzor71.ru",
           "image": "https://www.obzor71.ru/og-image-new.jpg",
           "description": "Профессиональная установка и ремонт домофонных систем в Тульской области",
@@ -78,28 +77,10 @@ export default async function onRenderHtml(pageContext) {
             "addressCountry": "RU"
           },
           "telephone": ["+7-905-629-87-08", "+7-919-073-61-42"],
-          "areaServed": [
-            {
-              "@type": "City",
-              "name": "Тула"
-            },
-            {
-              "@type": "City",
-              "name": "Новомосковск"
-            },
-            {
-              "@type": "City",
-              "name": "Узловая"
-            },
-            {
-              "@type": "City",
-              "name": "Алексин"
-            },
-            {
-              "@type": "City",
-              "name": "Щекино"
-            }
-          ],
+          "areaServed": {
+            "@type": "State",
+            "name": "Тульская область"
+          },
           "priceRange": "3000-15000 RUB",
           "openingHoursSpecification": [
             {
@@ -121,7 +102,7 @@ export default async function onRenderHtml(pageContext) {
                   "description": "Профессиональная установка домофонных систем любой сложности: видеодомофоны, аудиодомофоны, IP-домофоны, многоквартирные системы",
                   "provider": {
                     "@type": "LocalBusiness",
-                    "name": "Домофонная служба ИП Бухтеев"
+                    "name": "Домофонная служба"
                   },
                   "areaServed": "Тульская область"
                 }
@@ -134,7 +115,7 @@ export default async function onRenderHtml(pageContext) {
                   "description": "Диагностика неисправностей, замена компонентов, настройка системы, профилактика. Устранение проблем от 48 до 72 часов",
                   "provider": {
                     "@type": "LocalBusiness",
-                    "name": "Домофонная служба ИП Бухтеев"
+                    "name": "Домофонная служба"
                   },
                   "areaServed": "Тульская область"
                 }
@@ -152,7 +133,7 @@ export default async function onRenderHtml(pageContext) {
           "serviceType": "Установка домофонов",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Домофонная служба ИП Бухтеев",
+            "name": "Домофонная служба",
             "telephone": "+7-905-629-87-08"
           },
           "areaServed": {
@@ -180,7 +161,7 @@ export default async function onRenderHtml(pageContext) {
           "serviceType": "Ремонт домофонов",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Домофонная служба ИП Бухтеев",
+            "name": "Домофонная служба",
             "telephone": "+7-905-629-87-08"
           },
           "areaServed": {
@@ -230,7 +211,7 @@ export default async function onRenderHtml(pageContext) {
               "name": "В каких городах Тульской области вы работаете?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Мы оказываем услуги по установке и ремонту домофонов в следующих городах Тульской области: Тула, Новомосковск, Узловая, Алексин, Щекино и других населенных пунктах региона. Зона обслуживания - радиус 50 км."
+                "text": "Мы оказываем услуги по установке и ремонту домофонов по всей Тульской области. Зона обслуживания - радиус 50 км от центра области."
               }
             },
             {
