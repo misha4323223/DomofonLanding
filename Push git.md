@@ -1,5 +1,5 @@
 git add .
-git commit -m "dorabotka"
+git commit -m "open grahf"
 git push
 
 

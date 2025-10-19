@@ -34,6 +34,13 @@ else
   exit 1
 fi
 
+# Копируем og-image-new.jpg для Open Graph
+if [ -f "public/og-image-new.jpg" ]; then
+  cp public/og-image-new.jpg dist/public/client/og-image-new.jpg
+  cp public/og-image-new.jpg dist/public/og-image-new.jpg
+  echo "  ✓ og-image-new.jpg скопирован (Open Graph preview)"
+fi
+
 echo ""
 echo "✅ Готово! Теперь можно деплоить на GitHub Pages"
 echo ""
@@ -42,3 +49,4 @@ echo "  ✓ dist/public/404.html - для SPA роутинга (/admin буде�
 echo "  ✓ dist/public/OneSignalSDKWorker.js - OneSignal worker (обязательно в корне!)"
 echo "  ✓ dist/public/client/CNAME - кастомный домен"  
 echo "  ✓ dist/public/client/robots.txt - для поисковиков"
+echo "  ✓ dist/public/client/og-image-new.jpg - изображение для Open Graph"
