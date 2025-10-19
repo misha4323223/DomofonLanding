@@ -33,7 +33,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="hover-elevate transition-all duration-300"
+              className="glass-card layered-shadow hover-elevate transition-all duration-300 border-0"
               data-testid={`card-testimonial-${index}`}
             >
               <CardContent className="pt-6">
