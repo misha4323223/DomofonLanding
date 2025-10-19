@@ -36,7 +36,7 @@ export function Benefits() {
               data-testid={`card-benefit-${index}`}
             >
               <div className="w-16 h-16 rounded-md bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                <benefit.icon className="h-8 w-8 text-primary" />
+                <benefit.icon className="h-8 w-8 icon-gradient" />
               </div>
               <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
               <p className="text-muted-foreground leading-relaxed">

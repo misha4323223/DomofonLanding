@@ -46,7 +46,7 @@ export function Services() {
             >
               <CardHeader className="space-y-4">
                 <div className="w-14 h-14 rounded-md bg-primary/10 flex items-center justify-center">
-                  <service.icon className="h-7 w-7 text-primary" />
+                  <service.icon className="h-7 w-7 icon-gradient" />
                 </div>
                 <CardTitle className="text-2xl font-semibold leading-none tracking-tight">
                   {service.title}

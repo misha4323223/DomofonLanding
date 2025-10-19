@@ -441,6 +441,21 @@
       0 24px 32px rgba(0, 0, 0, 0.15);
   }
 
+  /* Gradient Icons */
+  .icon-gradient {
+    background: linear-gradient(135deg, hsl(220, 85%, 45%), hsl(220, 75%, 60%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .dark .icon-gradient {
+    background: linear-gradient(135deg, hsl(220, 75%, 55%), hsl(220, 85%, 70%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   /* CTA Button Pulsing Glow Effect */
   .cta-glow-pulse {
     animation: cta-pulse 2.5s ease-in-out infinite;
