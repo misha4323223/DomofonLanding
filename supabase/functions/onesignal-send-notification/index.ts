@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
+// Redeploy to reload ONESIGNAL_REST_API_KEY: 2025-10-19
 const ONESIGNAL_APP_ID = Deno.env.get('ONESIGNAL_APP_ID')!
 const ONESIGNAL_REST_API_KEY = Deno.env.get('ONESIGNAL_REST_API_KEY')!
 
