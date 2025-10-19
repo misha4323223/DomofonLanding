@@ -32,7 +32,7 @@ export function Benefits() {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="text-center"
+              className="glass-card glow-border-accent text-center p-8 rounded-md transition-all duration-300 hover-elevate"
               data-testid={`card-benefit-${index}`}
             >
               <div className="w-16 h-16 rounded-md bg-primary/10 flex items-center justify-center mx-auto mb-6">
