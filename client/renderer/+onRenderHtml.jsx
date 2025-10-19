@@ -21,24 +21,24 @@ export default async function onRenderHtml(pageContext) {
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.onesignal.com https://api.onesignal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://onesignal.com https://*.onesignal.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https://onesignal.com https://*.onesignal.com https://formspree.io https://*.supabase.co; worker-src 'self' blob:; frame-src 'self' https://onesignal.com https://*.onesignal.com https://cdn.onesignal.com https://os.tc https://*.os.tc;" />
         
         <!-- SEO Meta Tags -->
-        <title>Установка и ремонт домофонов в Тульской области | Домофонная служба ИП Бухтеев</title>
-        <meta name="description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Видео и аудио домофоны. Звоните: 8-905-629-87-08" />
+        <title>Установка и ремонт домофонов в Тульской области</title>
+        <meta name="description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Видео и аудио домофоны. Звоните: 8-905-629-87-08" />
         <meta name="keywords" content="установка домофонов Тула, ремонт домофонов Тула цена, установка домофона Новомосковск, ремонт домофона Узловая, видеодомофон установка Тульская область, IP домофон Тула, домофонная система для квартиры, установка домофона в частном доме Тула, аудиодомофон установка, многоквартирный домофон, срочный ремонт домофона, диагностика домофона Тула, замена домофона Алексин, настройка домофонной системы" />
         <meta name="author" content="ИП Бухтеев" />
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.obzor71.ru/" />
-        <meta property="og:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
-        <meta property="og:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Тула, Новомосковск, Узловая, Алексин. Звоните: 8-905-629-87-08" />
-        <meta property="og:image" content="https://www.obzor71.ru/og-image.jpg" />
+        <meta property="og:title" content="Установка и ремонт домофонов в Тульской области" />
+        <meta property="og:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Звоните: 8-905-629-87-08" />
+        <meta property="og:image" content="https://www.obzor71.ru/og-image-new.jpg" />
         
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.obzor71.ru/" />
-        <meta property="twitter:title" content="Установка и ремонт домофонов в Тульской области | ИП Бухтеев" />
+        <meta property="twitter:title" content="Установка и ремонт домофонов в Тульской области" />
         <meta property="twitter:description" content="⚡ Установка и ремонт домофонов в Тульской области от 3000₽! Выезд за 48-72 часа. Гарантия 12 месяцев. Звоните: 8-905-629-87-08" />
-        <meta property="twitter:image" content="https://www.obzor71.ru/og-image.jpg" />
+        <meta property="twitter:image" content="https://www.obzor71.ru/og-image-new.jpg" />
         
         <!-- Canonical URL -->
         <link rel="canonical" href="https://www.obzor71.ru/" />
@@ -70,7 +70,7 @@ export default async function onRenderHtml(pageContext) {
           "@type": "LocalBusiness",
           "name": "Домофонная служба ИП Бухтеев",
           "url": "https://www.obzor71.ru",
-          "image": "https://www.obzor71.ru/og-image.jpg",
+          "image": "https://www.obzor71.ru/og-image-new.jpg",
           "description": "Профессиональная установка и ремонт домофонных систем в Тульской области",
           "address": {
             "@type": "PostalAddress",
