@@ -20,6 +20,11 @@ serve(async (req) => {
   }
 
   try {
+    console.log('🔍 ONESIGNAL_APP_ID:', ONESIGNAL_APP_ID)
+    console.log('🔍 ONESIGNAL_APP_ID тип:', typeof ONESIGNAL_APP_ID)
+    console.log('🔍 ONESIGNAL_APP_ID длина:', ONESIGNAL_APP_ID?.length)
+    console.log('🔍 ONESIGNAL_REST_API_KEY длина:', ONESIGNAL_REST_API_KEY?.length)
+    
     const { subscriberId, message, heading }: NotificationRequest = await req.json()
 
     const payload = {
@@ -36,6 +41,7 @@ serve(async (req) => {
     }
 
     console.log('📤 Отправка уведомления через Edge Function:', payload)
+    console.log('📤 JSON payload:', JSON.stringify(payload, null, 2))
 
     const response = await fetch("https://onesignal.com/api/v1/notifications", {
       method: "POST",
